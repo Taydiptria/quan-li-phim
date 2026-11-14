@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#121212"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <TextView
+            android:id="@+id/btnBack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="← QUAY LẠI"
+            android:textColor="#FFC107"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:padding="8dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="THÊM PHIM MỚI"
+            android:textColor="#FFC107"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="25dp"/>
+
+        <EditText
+            android:id="@+id/edtTitle"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:hint="Tên phim"
+            android:textColor="#FFFFFF"
+            android:textColorHint="#888888"
+            android:backgroundTint="#FFC107"
+            android:inputType="text"
+            android:singleLine="true"/>
+
+        <EditText
+            android:id="@+id/edtGenre"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:hint="Thể loại"
+            android:textColor="#FFFFFF"
+            android:textColorHint="#888888"
+            android:backgroundTint="#FFC107"
+            android:inputType="text"
+            android:singleLine="true"/>
+
+        <EditText
+            android:id="@+id/edtDirector"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:hint="Đạo diễn"
+            android:textColor="#FFFFFF"
+            android:textColorHint="#888888"
+            android:backgroundTint="#FFC107"
+            android:inputType="text"
+            android:singleLine="true"/>
+
+        <EditText
+            android:id="@+id/edtYear"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:hint="Năm phát hành"
+            android:textColor="#FFFFFF"
+            android:textColorHint="#888888"
+            android:backgroundTint="#FFC107"
+            android:inputType="number"
+            android:singleLine="true"/>
+
+        <EditText
+            android:id="@+id/edtRating"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:hint="Điểm đánh giá (0 - 10)"
+            android:textColor="#FFFFFF"
+            android:textColorHint="#888888"
+            android:backgroundTint="#FFC107"
+            android:inputType="numberDecimal"
+            android:singleLine="true"/>
+
+        <EditText
+            android:id="@+id/edtPoster"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:hint="Đường dẫn ảnh poster (không bắt buộc)"
+            android:textColor="#FFFFFF"
+            android:textColorHint="#888888"
+            android:backgroundTint="#FFC107"
+            android:inputType="textUri"
+            android:singleLine="true"/>
+
+        <EditText
+            android:id="@+id/edtDescription"
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            android:hint="Mô tả nội dung phim"
+            android:textColor="#FFFFFF"
+            android:textColorHint="#888888"
+            android:backgroundTint="#FFC107"
+            android:gravity="top"
+            android:padding="12dp"
+            android:inputType="textMultiLine"/>
+
+        <Button
+            android:id="@+id/btnSaveMovie"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:text="LƯU PHIM"
+            android:textColor="#121212"
+            android:textStyle="bold"
+            android:backgroundTint="#FFC107"
+            android:layout_marginTop="25dp"/>
+
+    </LinearLayout>
+</ScrollView>

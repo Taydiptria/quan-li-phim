@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#121212"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <TextView
+            android:id="@+id/btnBack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="←  QUAY LẠI"
+            android:textColor="#FFC107"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:padding="8dp"/>
+
+        <ImageView
+            android:id="@+id/imgDetailPoster"
+            android:layout_width="match_parent"
+            android:layout_height="260dp"
+            android:layout_marginTop="15dp"
+            android:scaleType="centerInside"
+            android:src="@android:drawable/ic_menu_gallery"
+            android:background="#1E1E1E"
+            android:contentDescription="Poster phim"/>
+
+        <TextView
+            android:id="@+id/tvDetailTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Tên phim"
+            android:textColor="#FFC107"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            android:layout_marginTop="20dp"/>
+
+        <TextView
+            android:id="@+id/tvDetailGenre"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Thể loại"
+            android:textColor="#E53935"
+            android:textSize="15sp"
+            android:layout_marginTop="12dp"/>
+
+        <TextView
+            android:id="@+id/tvDetailYear"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Năm phát hành"
+            android:textColor="#AAAAAA"
+            android:textSize="14sp"
+            android:layout_marginTop="8dp"/>
+
+        <TextView
+            android:id="@+id/tvDetailDirector"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Đạo diễn"
+            android:textColor="#FFFFFF"
+            android:textSize="14sp"
+            android:layout_marginTop="8dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="ĐÁNH GIÁ"
+            android:textColor="#FFC107"
+            android:textStyle="bold"
+            android:textSize="15sp"
+            android:layout_marginTop="25dp"/>
+
+        <TextView
+            android:id="@+id/tvDetailRating"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="0.0 / 10"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_marginTop="8dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="NỘI DUNG PHIM"
+            android:textColor="#FFC107"
+            android:textStyle="bold"
+            android:textSize="15sp"
+            android:layout_marginTop="25dp"/>
+
+        <TextView
+            android:id="@+id/tvDetailDescription"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Mô tả phim..."
+            android:textColor="#CCCCCC"
+            android:textSize="14sp"
+            android:lineSpacingExtra="5dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="30dp"/>
+
+    </LinearLayout>
+
+</ScrollView>
