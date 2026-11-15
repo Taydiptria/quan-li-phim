@@ -3,6 +3,7 @@ package com.example.quanliphim;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -19,6 +20,7 @@ public class MainActivity extends AppCompatActivity {
     RecyclerView rvMovies, rvFavoriteMovies;
 
     TextView tvEmpty, tvFavoriteEmpty;
+    ImageView btnAddMovie;
 
     MovieAdapter movieAdapter;
     FavouriteMovieAdapter favoriteAdapter;
@@ -35,6 +37,12 @@ public class MainActivity extends AppCompatActivity {
 
         tvEmpty = findViewById(R.id.tvEmpty);
         tvFavoriteEmpty = findViewById(R.id.tvFavoriteEmpty);
+        btnAddMovie = findViewById(R.id.btnAddMovie);
+
+        btnAddMovie.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, AddMovieActivity.class);
+            startActivity(intent);
+        });
 
         // Danh sách phim mới thêm: hiển thị dọc
         rvMovies.setLayoutManager(
