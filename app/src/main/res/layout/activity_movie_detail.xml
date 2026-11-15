@@ -105,7 +105,36 @@
             android:textSize="14sp"
             android:lineSpacingExtra="5dp"
             android:layout_marginTop="10dp"
-            android:layout_marginBottom="30dp"/>
+            android:layout_marginBottom="20dp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="30dp">
+
+            <Button
+                android:id="@+id/btnEdit"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:text="CHỈNH SỬA"
+                android:textColor="#121212"
+                android:textStyle="bold"
+                android:backgroundTint="#FFC107"
+                android:layout_marginEnd="8dp"/>
+
+            <Button
+                android:id="@+id/btnDelete"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:text="XÓA PHIM"
+                android:textColor="#FFFFFF"
+                android:textStyle="bold"
+                android:backgroundTint="#E53935"
+                android:layout_marginStart="8dp"/>
+        </LinearLayout>
 
     </LinearLayout>
 

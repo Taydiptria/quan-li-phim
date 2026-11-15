@@ -1,25 +1,33 @@
 package com.example.quanliphim;
 
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.quanliphim.database.MovieDatabase;
 import com.example.quanliphim.entity.MovieEntity;
 
 import java.util.Locale;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 public class MovieDetailActivity extends AppCompatActivity {
 
     ImageView imgPoster;
     TextView tvTitle, tvGenre, tvYear;
     TextView tvDirector, tvRating, tvDescription, btnBack;
+    Button btnEdit, btnDelete;
 
     MovieDatabase database;
+    int movieId = -1;
+    MovieEntity currentMovie;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,10 +42,12 @@ public class MovieDetailActivity extends AppCompatActivity {
         tvRating = findViewById(R.id.tvDetailRating);
         tvDescription = findViewById(R.id.tvDetailDescription);
         btnBack = findViewById(R.id.btnBack);
+        btnEdit = findViewById(R.id.btnEdit);
+        btnDelete = findViewById(R.id.btnDelete);
 
         btnBack.setOnClickListener(v -> finish());
 
-        int movieId = getIntent().getIntExtra("movie_id", -1);
+        movieId = getIntent().getIntExtra("movie_id", -1);
 
         if (movieId == -1) {
             Toast.makeText(this, "Không tìm thấy phim",
@@ -58,8 +68,41 @@ public class MovieDetailActivity extends AppCompatActivity {
                         return;
                     }
 
+                    currentMovie = movie;
                     displayMovie(movie);
                 });
+
+        btnEdit.setOnClickListener(v -> {
+            if (currentMovie != null) {
+                Intent intent = new Intent(MovieDetailActivity.this, AddMovieActivity.class);
+                intent.putExtra("movie_id", currentMovie.id);
+                startActivity(intent);
+            }
+        });
+
+        btnDelete.setOnClickListener(v -> {
+            if (currentMovie != null) {
+                new AlertDialog.Builder(this)
+                        .setTitle("Xóa phim")
+                        .setMessage("Bạn có chắc chắn muốn xóa phim \"" + currentMovie.title + "\"?")
+                        .setPositiveButton("Xóa", (dialog, which) -> deleteMovie())
+                        .setNegativeButton("Hủy", null)
+                        .show();
+            }
+        });
+    }
+
+    private void deleteMovie() {
+        if (currentMovie == null) return;
+        ExecutorService executor = Executors.newSingleThreadExecutor();
+        executor.execute(() -> {
+            database.movieDao().deleteMovie(currentMovie);
+            runOnUiThread(() -> {
+                Toast.makeText(MovieDetailActivity.this, "Đã xóa phim thành công", Toast.LENGTH_SHORT).show();
+                finish();
+            });
+            executor.shutdown();
+        });
     }
 
     private void displayMovie(MovieEntity movie) {

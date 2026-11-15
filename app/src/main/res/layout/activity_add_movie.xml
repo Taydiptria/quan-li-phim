@@ -39,8 +39,8 @@
             android:textColor="#FFFFFF"
             android:textColorHint="#888888"
             android:backgroundTint="#FFC107"
-            android:inputType="text"
-            android:singleLine="true"/>
+            android:inputType="text|textAutoCorrect"
+            android:maxLines="1"/>
 
         <EditText
             android:id="@+id/edtGenre"
@@ -50,8 +50,8 @@
             android:textColor="#FFFFFF"
             android:textColorHint="#888888"
             android:backgroundTint="#FFC107"
-            android:inputType="text"
-            android:singleLine="true"/>
+            android:inputType="text|textAutoCorrect"
+            android:maxLines="1"/>
 
         <EditText
             android:id="@+id/edtDirector"
@@ -61,8 +61,8 @@
             android:textColor="#FFFFFF"
             android:textColorHint="#888888"
             android:backgroundTint="#FFC107"
-            android:inputType="text"
-            android:singleLine="true"/>
+            android:inputType="text|textAutoCorrect"
+            android:maxLines="1"/>
 
         <EditText
             android:id="@+id/edtYear"
@@ -73,7 +73,7 @@
             android:textColorHint="#888888"
             android:backgroundTint="#FFC107"
             android:inputType="number"
-            android:singleLine="true"/>
+            android:maxLines="1"/>
 
         <EditText
             android:id="@+id/edtRating"
@@ -84,7 +84,7 @@
             android:textColorHint="#888888"
             android:backgroundTint="#FFC107"
             android:inputType="numberDecimal"
-            android:singleLine="true"/>
+            android:maxLines="1"/>
 
         <EditText
             android:id="@+id/edtPoster"
@@ -95,7 +95,7 @@
             android:textColorHint="#888888"
             android:backgroundTint="#FFC107"
             android:inputType="textUri"
-            android:singleLine="true"/>
+            android:maxLines="1"/>
 
         <EditText
             android:id="@+id/edtDescription"
@@ -107,7 +107,7 @@
             android:backgroundTint="#FFC107"
             android:gravity="top"
             android:padding="12dp"
-            android:inputType="textMultiLine"/>
+            android:inputType="textMultiLine|textAutoCorrect"/>
 
         <Button
             android:id="@+id/btnSaveMovie"
