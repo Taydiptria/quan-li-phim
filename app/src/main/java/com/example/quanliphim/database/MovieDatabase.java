@@ -12,7 +12,7 @@ import com.example.quanliphim.entity.MovieEntity;
 
 @Database(
         entities = {MovieEntity.class},
-        version = 1,
+        version = 2,
         exportSchema = false
 )
 public abstract class MovieDatabase extends RoomDatabase {
@@ -31,7 +31,9 @@ public abstract class MovieDatabase extends RoomDatabase {
                             context.getApplicationContext(),
                             MovieDatabase.class,
                             "movie_database"
-                    ).build();
+                    )
+                    .fallbackToDestructiveMigration()
+                    .build();
                 }
             }
         }

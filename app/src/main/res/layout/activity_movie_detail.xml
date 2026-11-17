@@ -41,14 +41,48 @@
             android:textStyle="bold"
             android:layout_marginTop="20dp"/>
 
-        <TextView
-            android:id="@+id/tvDetailGenre"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Thể loại"
-            android:textColor="#E53935"
-            android:textSize="15sp"
-            android:layout_marginTop="12dp"/>
+            android:orientation="horizontal"
+            android:layout_marginTop="8dp"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:id="@+id/tvDetailGenre"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Thể loại"
+                android:textColor="#E53935"
+                android:textSize="15sp"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:id="@+id/tvDetailWatchedBadge"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:background="#2E7D32"
+                android:paddingHorizontal="10dp"
+                android:paddingVertical="4dp"
+                android:text="Đã xem"
+                android:textColor="#FFFFFF"
+                android:textSize="12sp"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:id="@+id/tvDetailFavoriteBadge"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:background="#C2185B"
+                android:paddingHorizontal="10dp"
+                android:paddingVertical="4dp"
+                android:text="Yêu thích"
+                android:textColor="#FFFFFF"
+                android:textSize="12sp"
+                android:textStyle="bold"/>
+        </LinearLayout>
 
         <TextView
             android:id="@+id/tvDetailYear"
@@ -68,25 +102,71 @@
             android:textSize="14sp"
             android:layout_marginTop="8dp"/>
 
-        <TextView
+        <!-- RATING & REVIEW SECTION (UC11) -->
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="ĐÁNH GIÁ"
-            android:textColor="#FFC107"
-            android:textStyle="bold"
-            android:textSize="15sp"
-            android:layout_marginTop="25dp"/>
+            android:orientation="vertical"
+            android:background="@drawable/bg_rating_box"
+            android:padding="16dp"
+            android:layout_marginTop="20dp">
 
-        <TextView
-            android:id="@+id/tvDetailRating"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="0.0 / 10"
-            android:textColor="#FFFFFF"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            android:layout_marginTop="8dp"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
 
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="ĐÁNH GIÁ &amp; NHẬN XÉT"
+                    android:textColor="#FFC107"
+                    android:textStyle="bold"
+                    android:textSize="15sp"/>
+
+                <TextView
+                    android:id="@+id/tvDetailRating"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0.0 / 10"
+                    android:textColor="#FFFFFF"
+                    android:textSize="18sp"
+                    android:textStyle="bold"/>
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tvDetailReviewLabel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Nhận xét của bạn:"
+                android:textColor="#AAAAAA"
+                android:textSize="13sp"
+                android:layout_marginTop="12dp"/>
+
+            <TextView
+                android:id="@+id/tvDetailReview"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Chưa có nhận xét nào cho bộ phim này. Nhấn nút bên dưới để chấm điểm và viết nhận xét."
+                android:textColor="#E0E0E0"
+                android:textSize="14sp"
+                android:lineSpacingExtra="4dp"
+                android:layout_marginTop="4dp"/>
+
+            <Button
+                android:id="@+id/btnRateReview"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginTop="14dp"
+                android:text="★ ĐÁNH GIÁ &amp; VIẾT NHẬN XÉT"
+                android:textColor="#121212"
+                android:textStyle="bold"
+                android:backgroundTint="#FFC107"/>
+        </LinearLayout>
+
+        <!-- DESCRIPTION -->
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -94,7 +174,7 @@
             android:textColor="#FFC107"
             android:textStyle="bold"
             android:textSize="15sp"
-            android:layout_marginTop="25dp"/>
+            android:layout_marginTop="20dp"/>
 
         <TextView
             android:id="@+id/tvDetailDescription"
@@ -104,8 +184,36 @@
             android:textColor="#CCCCCC"
             android:textSize="14sp"
             android:lineSpacingExtra="5dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="20dp"/>
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="16dp"/>
+
+        <!-- ACTION BUTTONS -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="12dp">
+
+            <Button
+                android:id="@+id/btnToggleWatched"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_weight="1"
+                android:text="✔ ĐÃ XEM"
+                android:textColor="#FFFFFF"
+                android:backgroundTint="#2E7D32"
+                android:layout_marginEnd="6dp"/>
+
+            <Button
+                android:id="@+id/btnToggleFavorite"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_weight="1"
+                android:text="♥ YÊU THÍCH"
+                android:textColor="#FFFFFF"
+                android:backgroundTint="#C2185B"
+                android:layout_marginStart="6dp"/>
+        </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -116,24 +224,24 @@
             <Button
                 android:id="@+id/btnEdit"
                 android:layout_width="0dp"
-                android:layout_height="50dp"
+                android:layout_height="48dp"
                 android:layout_weight="1"
                 android:text="CHỈNH SỬA"
-                android:textColor="#121212"
+                android:textColor="#FFFFFF"
                 android:textStyle="bold"
-                android:backgroundTint="#FFC107"
-                android:layout_marginEnd="8dp"/>
+                android:backgroundTint="#444444"
+                android:layout_marginEnd="6dp"/>
 
             <Button
                 android:id="@+id/btnDelete"
                 android:layout_width="0dp"
-                android:layout_height="50dp"
+                android:layout_height="48dp"
                 android:layout_weight="1"
                 android:text="XÓA PHIM"
                 android:textColor="#FFFFFF"
                 android:textStyle="bold"
                 android:backgroundTint="#E53935"
-                android:layout_marginStart="8dp"/>
+                android:layout_marginStart="6dp"/>
         </LinearLayout>
 
     </LinearLayout>

@@ -1,41 +1,75 @@
 package com.example.quanliphim;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.quanliphim.database.MovieDatabase;
 import com.example.quanliphim.entity.MovieEntity;
+import com.example.quanliphim.util.PreferenceManager;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 public class AddMovieActivity extends AppCompatActivity {
 
-    EditText edtTitle, edtGenre, edtDirector, edtYear, edtRating, edtPoster, edtDescription;
-    Button btnSaveMovie;
-    TextView btnBack;
+    EditText edtTitle, edtGenre, edtDirector, edtYear, edtRating, edtDescription, edtReview;
+    ImageView imgPosterPreview;
+    TextView tvPosterStatus, tvAddMovieHeader, btnBack;
+    Button btnSelectPoster, btnRemovePoster, btnSaveMovie;
 
     MovieDatabase database;
     int movieId = -1;
     MovieEntity currentMovie;
 
+    private String selectedPosterUri = "";
+
+    private final ActivityResultLauncher<String> pickImageLauncher =
+            registerForActivityResult(new ActivityResultContracts.GetContent(), uri -> {
+                if (uri != null) {
+                    try {
+                        getContentResolver().takePersistableUriPermission(
+                                uri,
+                                Intent.FLAG_GRANT_READ_URI_PERMISSION
+                        );
+                    } catch (Exception ignored) {}
+
+                    selectedPosterUri = uri.toString();
+                    displayPoster(selectedPosterUri);
+                    Toast.makeText(AddMovieActivity.this, "Đã chọn ảnh poster thành công", Toast.LENGTH_SHORT).show();
+                }
+            });
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        PreferenceManager.applySavedTheme(this);
         setContentView(R.layout.activity_add_movie);
 
+        tvAddMovieHeader = findViewById(R.id.tvAddMovieHeader);
         edtTitle = findViewById(R.id.edtTitle);
         edtGenre = findViewById(R.id.edtGenre);
         edtDirector = findViewById(R.id.edtDirector);
         edtYear = findViewById(R.id.edtYear);
         edtRating = findViewById(R.id.edtRating);
-        edtPoster = findViewById(R.id.edtPoster);
         edtDescription = findViewById(R.id.edtDescription);
+        edtReview = findViewById(R.id.edtReview);
+
+        imgPosterPreview = findViewById(R.id.imgPosterPreview);
+        tvPosterStatus = findViewById(R.id.tvPosterStatus);
+        btnSelectPoster = findViewById(R.id.btnSelectPoster);
+        btnRemovePoster = findViewById(R.id.btnRemovePoster);
+
         btnSaveMovie = findViewById(R.id.btnSaveMovie);
         btnBack = findViewById(R.id.btnBack);
 
@@ -43,9 +77,17 @@ public class AddMovieActivity extends AppCompatActivity {
 
         btnBack.setOnClickListener(v -> finish());
 
+        btnSelectPoster.setOnClickListener(v -> pickImageLauncher.launch("image/*"));
+
+        btnRemovePoster.setOnClickListener(v -> {
+            selectedPosterUri = "";
+            displayPoster("");
+        });
+
         // Check if editing an existing movie
         movieId = getIntent().getIntExtra("movie_id", -1);
         if (movieId != -1) {
+            tvAddMovieHeader.setText("CHỈNH SỬA PHIM");
             database.movieDao().getMovieById(movieId).observe(this, movie -> {
                 if (movie != null) {
                     currentMovie = movie;
@@ -54,8 +96,12 @@ public class AddMovieActivity extends AppCompatActivity {
                     edtDirector.setText(movie.director);
                     edtYear.setText(String.valueOf(movie.year));
                     edtRating.setText(String.valueOf(movie.rating));
-                    edtPoster.setText(movie.poster);
                     edtDescription.setText(movie.description);
+                    if (movie.review != null) {
+                        edtReview.setText(movie.review);
+                    }
+                    selectedPosterUri = movie.poster != null ? movie.poster : "";
+                    displayPoster(selectedPosterUri);
                     btnSaveMovie.setText("CẬP NHẬT PHIM");
                 }
             });
@@ -64,14 +110,31 @@ public class AddMovieActivity extends AppCompatActivity {
         btnSaveMovie.setOnClickListener(v -> saveMovie());
     }
 
+    private void displayPoster(String uriStr) {
+        if (uriStr != null && !uriStr.trim().isEmpty()) {
+            try {
+                imgPosterPreview.setImageURI(Uri.parse(uriStr));
+                tvPosterStatus.setText("Đã chọn ảnh từ thiết bị");
+                tvPosterStatus.setTextColor(0xFF4CAF50); // Green
+                btnRemovePoster.setVisibility(View.VISIBLE);
+                return;
+            } catch (Exception ignored) {}
+        }
+
+        imgPosterPreview.setImageResource(android.R.drawable.ic_menu_gallery);
+        tvPosterStatus.setText("Chưa chọn ảnh từ thiết bị");
+        tvPosterStatus.setTextColor(0xFF888888);
+        btnRemovePoster.setVisibility(View.GONE);
+    }
+
     private void saveMovie() {
         String title = edtTitle.getText().toString().trim();
         String genre = edtGenre.getText().toString().trim();
         String director = edtDirector.getText().toString().trim();
         String yearStr = edtYear.getText().toString().trim();
         String ratingStr = edtRating.getText().toString().trim();
-        String poster = edtPoster.getText().toString().trim();
         String description = edtDescription.getText().toString().trim();
+        String review = edtReview.getText().toString().trim();
 
         if (title.isEmpty() || genre.isEmpty() || yearStr.isEmpty()) {
             Toast.makeText(this, "Vui lòng nhập Tên phim, Thể loại và Năm phát hành", Toast.LENGTH_SHORT).show();
@@ -102,6 +165,8 @@ public class AddMovieActivity extends AppCompatActivity {
 
         ExecutorService executor = Executors.newSingleThreadExecutor();
         float ratingVal = finalRating;
+        String posterVal = selectedPosterUri;
+
         executor.execute(() -> {
             if (movieId == -1) {
                 // Insert new movie
@@ -111,8 +176,9 @@ public class AddMovieActivity extends AppCompatActivity {
                 movie.director = director;
                 movie.year = year;
                 movie.rating = ratingVal;
-                movie.poster = poster;
+                movie.poster = posterVal;
                 movie.description = description;
+                movie.review = review;
                 movie.favorite = false;
                 movie.watched = false;
 
@@ -129,8 +195,9 @@ public class AddMovieActivity extends AppCompatActivity {
                     currentMovie.director = director;
                     currentMovie.year = year;
                     currentMovie.rating = ratingVal;
-                    currentMovie.poster = poster;
+                    currentMovie.poster = posterVal;
                     currentMovie.description = description;
+                    currentMovie.review = review;
 
                     database.movieDao().updateMovie(currentMovie);
                     runOnUiThread(() -> {

@@ -18,5 +18,6 @@ public class MovieEntity {
     public boolean favorite;
     public boolean watched;
     public float rating;
+    public String review;
 
 }

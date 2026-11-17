@@ -1,4 +1,66 @@
 package com.example.quanliphim;
 
-public class WatchedActivity {
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.quanliphim.adapter.MovieAdapter;
+import com.example.quanliphim.database.MovieDatabase;
+import com.example.quanliphim.entity.MovieEntity;
+import com.example.quanliphim.util.PreferenceManager;
+
+import java.util.concurrent.Executors;
+
+public class WatchedActivity extends AppCompatActivity {
+
+    TextView btnBack, tvEmpty;
+    RecyclerView rvWatchedMovies;
+    MovieAdapter movieAdapter;
+    MovieDatabase database;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        PreferenceManager.applySavedTheme(this);
+        setContentView(R.layout.activity_watched);
+
+        btnBack = findViewById(R.id.btnBack);
+        tvEmpty = findViewById(R.id.tvEmpty);
+        rvWatchedMovies = findViewById(R.id.rvWatchedMovies);
+
+        btnBack.setOnClickListener(v -> finish());
+
+        rvWatchedMovies.setLayoutManager(new LinearLayoutManager(this));
+        movieAdapter = new MovieAdapter(this::openMovieDetail);
+        movieAdapter.setOnFavoriteClickListener(movie -> {
+            movie.favorite = !movie.favorite;
+            Executors.newSingleThreadExecutor().execute(() -> {
+                database.movieDao().updateMovie(movie);
+            });
+        });
+        rvWatchedMovies.setAdapter(movieAdapter);
+
+        database = MovieDatabase.getDatabase(this);
+        database.movieDao().getWatchedMovies().observe(this, movies -> {
+            if (movies == null || movies.isEmpty()) {
+                tvEmpty.setVisibility(View.VISIBLE);
+                rvWatchedMovies.setVisibility(View.GONE);
+            } else {
+                tvEmpty.setVisibility(View.GONE);
+                rvWatchedMovies.setVisibility(View.VISIBLE);
+                movieAdapter.setMovieList(movies);
+            }
+        });
+    }
+
+    private void openMovieDetail(MovieEntity movie) {
+        Intent intent = new Intent(this, MovieDetailActivity.class);
+        intent.putExtra("movie_id", movie.id);
+        startActivity(intent);
+    }
 }

@@ -56,26 +56,38 @@
                     android:src="@android:drawable/ic_menu_add"
                     android:background="@drawable/bg_movie_item"
                     android:padding="10dp"
-                    android:tint="#FFC107"
-                    android:layout_marginEnd="10dp"
+                    app:tint="#FFC107"
+                    android:layout_marginEnd="8dp"
                     android:contentDescription="Thêm phim"/>
 
                 <ImageView
+                    android:id="@+id/btnStatistics"
+                    android:layout_width="42dp"
+                    android:layout_height="42dp"
+                    android:src="@android:drawable/ic_menu_sort_by_size"
+                    android:background="@drawable/bg_movie_item"
+                    android:padding="10dp"
+                    app:tint="#FFC107"
+                    android:layout_marginEnd="8dp"
+                    android:contentDescription="Thống kê"/>
+
+                <ImageView
+                    android:id="@+id/btnProfile"
                     android:layout_width="42dp"
                     android:layout_height="42dp"
                     android:src="@android:drawable/ic_menu_myplaces"
                     android:background="@drawable/bg_movie_item"
                     android:padding="10dp"
-                    android:tint="#FFC107"
-                    android:contentDescription="Cá nhân"/>
+                    app:tint="#FFC107"
+                    android:contentDescription="Cá nhân và Cài đặt"/>
             </LinearLayout>
         </LinearLayout>
 
         <!-- BANNER -->
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="175dp"
-            android:layout_marginTop="25dp"
+            android:layout_height="160dp"
+            android:layout_marginTop="20dp"
             android:background="@drawable/bg_banner"
             android:gravity="center_vertical"
             android:orientation="vertical"
@@ -92,31 +104,71 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="7dp"
+                android:layout_marginTop="6dp"
                 android:text="YOUR MOVIE WORLD"
                 android:textColor="#FFFFFF"
-                android:textSize="23sp"
+                android:textSize="22sp"
                 android:textStyle="bold"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:text="Lưu giữ những bộ phim yêu thích của bạn"
+                android:layout_marginTop="6dp"
+                android:text="Quản lý, đánh giá &amp; thống kê bộ sưu tập phim"
                 android:textColor="#CCCCCC"
                 android:textSize="12sp"/>
 
         </LinearLayout>
 
+        <!-- QUICK NAVIGATION ROW (3 BUTTONS: STATS, FAVORITES, WATCHED) -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="16dp">
+
+            <Button
+                android:id="@+id/btnQuickStats"
+                android:layout_width="0dp"
+                android:layout_height="45dp"
+                android:layout_weight="1"
+                android:text="📊 Thống kê"
+                android:textColor="#FFFFFF"
+                android:textSize="13sp"
+                android:backgroundTint="#262626"
+                android:layout_marginEnd="4dp"/>
+
+            <Button
+                android:id="@+id/btnQuickFavorites"
+                android:layout_width="0dp"
+                android:layout_height="45dp"
+                android:layout_weight="1"
+                android:text="♥ Yêu thích"
+                android:textColor="#FFFFFF"
+                android:textSize="13sp"
+                android:backgroundTint="#262626"
+                android:layout_marginHorizontal="4dp"/>
+
+            <Button
+                android:id="@+id/btnQuickWatched"
+                android:layout_width="0dp"
+                android:layout_height="45dp"
+                android:layout_weight="1"
+                android:text="✔ Đã xem"
+                android:textColor="#FFFFFF"
+                android:textSize="13sp"
+                android:backgroundTint="#262626"
+                android:layout_marginStart="4dp"/>
+        </LinearLayout>
 
         <!-- PHIM YEU THICH -->
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="28dp"
+            android:layout_marginTop="24dp"
             android:text="Phim yêu thích"
             android:textColor="#FFFFFF"
-            android:textSize="20sp"
+            android:textSize="19sp"
             android:textStyle="bold"/>
 
         <TextView
@@ -132,17 +184,17 @@
             android:id="@+id/rvFavoriteMovies"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="12dp"
             android:nestedScrollingEnabled="false"/>
 
         <!-- PHIM MOI THEM -->
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="28dp"
+            android:layout_marginTop="24dp"
             android:text="Phim mới thêm"
             android:textColor="#FFFFFF"
-            android:textSize="20sp"
+            android:textSize="19sp"
             android:textStyle="bold"/>
 
         <TextView
@@ -160,7 +212,7 @@
             android:id="@+id/rvMovies"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="12dp"
             android:nestedScrollingEnabled="false"/>
 
         <TextView
