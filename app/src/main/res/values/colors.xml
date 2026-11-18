@@ -1,5 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!-- Common colors -->
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <!-- Light Theme Colors (Sáng dịu nhẹ, không bị gắt mắt) -->
+    <color name="bg_main">#EAECEF</color> <!-- Nền chính màu xám xang nhạt dịu mắt -->
+    <color name="bg_card">#FFFFFF</color> <!-- Thẻ khung thông tin trắng mịn -->
+    <color name="bg_card_gold">#FFFBF0</color> <!-- Thẻ khung vàng nhạt -->
+    <color name="bg_card_stroke">#D1D5DB</color> <!-- Viền khung xám nhẹ -->
+    <color name="bg_edittext">#F3F4F6</color> <!-- Nền ô nhập liệu xám dịu -->
+    <color name="edittext_stroke">#9CA3AF</color> <!-- Viền ô nhập liệu -->
+
+    <color name="text_primary">#1F2937</color> <!-- Chữ tiêu đề chính (Chữ xám đen đậm) -->
+    <color name="text_secondary">#4B5563</color> <!-- Chữ mô tả nội dung -->
+    <color name="text_sub">#6B7280</color> <!-- Chữ phụ, ngày tháng, đếm số -->
+    <color name="text_hint">#9CA3AF</color> <!-- Chữ gợi ý nhập liệu -->
+
+    <color name="accent_gold">#D97706</color> <!-- Màu điểm nhấn Vàng Cam -->
+    <color name="accent_gold_bright">#F59E0B</color>
+    <color name="bottom_nav_bg">#F3F4F6</color> <!-- Nền thanh điều hướng xám nhạt dịu -->
+    <color name="bottom_nav_border">#D1D5DB</color>
+    <color name="poster_placeholder">#E5E7EB</color>
 </resources>

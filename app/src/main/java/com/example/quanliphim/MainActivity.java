@@ -3,11 +3,14 @@ package com.example.quanliphim;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.graphics.Insets;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowInsetsCompat;
+import androidx.core.widget.NestedScrollView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -22,11 +25,13 @@ import java.util.concurrent.Executors;
 public class MainActivity extends AppCompatActivity {
 
     RecyclerView rvMovies, rvFavoriteMovies;
+    NestedScrollView mainScrollView;
 
     TextView tvEmpty, tvFavoriteEmpty;
-    ImageView btnAddMovie, btnStatistics, btnProfile, btnSearch;
+    ImageView btnAddMovie, btnProfile, btnThemeToggle;
     View btnOpenSearch;
-    Button btnQuickStats, btnQuickFavorites, btnQuickWatched;
+
+    View btnNavHome, btnNavFavorites, btnNavWatched, btnNavStats, btnNavSearch;
 
     MovieAdapter movieAdapter;
     FavouriteMovieAdapter favoriteAdapter;
@@ -39,54 +44,96 @@ public class MainActivity extends AppCompatActivity {
         PreferenceManager.applySavedTheme(this);
         setContentView(R.layout.activity_main);
 
+        // Window Insets Padding (Status bar / Bottom gesture bar protection)
+        View mainRoot = findViewById(R.id.mainRoot);
+        if (mainRoot != null) {
+            ViewCompat.setOnApplyWindowInsetsListener(mainRoot, (v, insets) -> {
+                Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
+                v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
+                return insets;
+            });
+        }
+
+        mainScrollView = findViewById(R.id.mainScrollView);
         rvMovies = findViewById(R.id.rvMovies);
         rvFavoriteMovies = findViewById(R.id.rvFavoriteMovies);
 
         tvEmpty = findViewById(R.id.tvEmpty);
         tvFavoriteEmpty = findViewById(R.id.tvFavoriteEmpty);
-        btnSearch = findViewById(R.id.btnSearch);
-        btnOpenSearch = findViewById(R.id.btnOpenSearch);
+
         btnAddMovie = findViewById(R.id.btnAddMovie);
-        btnStatistics = findViewById(R.id.btnStatistics);
         btnProfile = findViewById(R.id.btnProfile);
+        btnThemeToggle = findViewById(R.id.btnThemeToggle);
+        btnOpenSearch = findViewById(R.id.btnOpenSearch);
 
-        View.OnClickListener openSearch = v -> {
-            Intent intent = new Intent(MainActivity.this, SearchActivity.class);
-            startActivity(intent);
-        };
-        if (btnSearch != null) btnSearch.setOnClickListener(openSearch);
-        if (btnOpenSearch != null) btnOpenSearch.setOnClickListener(openSearch);
-
-        btnQuickStats = findViewById(R.id.btnQuickStats);
-        btnQuickFavorites = findViewById(R.id.btnQuickFavorites);
-        btnQuickWatched = findViewById(R.id.btnQuickWatched);
+        // Bottom Navigation Bar Tabs
+        btnNavHome = findViewById(R.id.btnNavHome);
+        btnNavFavorites = findViewById(R.id.btnNavFavorites);
+        btnNavWatched = findViewById(R.id.btnNavWatched);
+        btnNavStats = findViewById(R.id.btnNavStats);
+        btnNavSearch = findViewById(R.id.btnNavSearch);
 
         btnAddMovie.setOnClickListener(v -> {
             Intent intent = new Intent(MainActivity.this, AddMovieActivity.class);
             startActivity(intent);
         });
 
-        View.OnClickListener openStats = v -> {
-            Intent intent = new Intent(MainActivity.this, StatisticsActivity.class);
-            startActivity(intent);
-        };
-        btnStatistics.setOnClickListener(openStats);
-        btnQuickStats.setOnClickListener(openStats);
-
         btnProfile.setOnClickListener(v -> {
             Intent intent = new Intent(MainActivity.this, ProfileActivity.class);
             startActivity(intent);
         });
 
-        btnQuickFavorites.setOnClickListener(v -> {
-            Intent intent = new Intent(MainActivity.this, FavoriteActivity.class);
-            startActivity(intent);
-        });
+        if (btnThemeToggle != null) {
+            btnThemeToggle.setOnClickListener(v -> {
+                int currentMode = PreferenceManager.getThemeMode(MainActivity.this);
+                int nextMode = (currentMode == PreferenceManager.THEME_DARK) ? PreferenceManager.THEME_LIGHT : PreferenceManager.THEME_DARK;
+                PreferenceManager.setThemeMode(MainActivity.this, nextMode);
+            });
+        }
 
-        btnQuickWatched.setOnClickListener(v -> {
-            Intent intent = new Intent(MainActivity.this, WatchedActivity.class);
-            startActivity(intent);
-        });
+        if (btnOpenSearch != null) {
+            btnOpenSearch.setOnClickListener(v -> {
+                Intent intent = new Intent(MainActivity.this, SearchActivity.class);
+                startActivity(intent);
+            });
+        }
+
+        // Setup Bottom Nav Tab Listeners
+        if (btnNavHome != null) {
+            btnNavHome.setOnClickListener(v -> {
+                if (mainScrollView != null) {
+                    mainScrollView.smoothScrollTo(0, 0);
+                }
+            });
+        }
+
+        if (btnNavFavorites != null) {
+            btnNavFavorites.setOnClickListener(v -> {
+                Intent intent = new Intent(MainActivity.this, FavoriteActivity.class);
+                startActivity(intent);
+            });
+        }
+
+        if (btnNavWatched != null) {
+            btnNavWatched.setOnClickListener(v -> {
+                Intent intent = new Intent(MainActivity.this, WatchedActivity.class);
+                startActivity(intent);
+            });
+        }
+
+        if (btnNavStats != null) {
+            btnNavStats.setOnClickListener(v -> {
+                Intent intent = new Intent(MainActivity.this, StatisticsActivity.class);
+                startActivity(intent);
+            });
+        }
+
+        if (btnNavSearch != null) {
+            btnNavSearch.setOnClickListener(v -> {
+                Intent intent = new Intent(MainActivity.this, SearchActivity.class);
+                startActivity(intent);
+            });
+        }
 
         // Danh sách phim mới thêm: hiển thị dọc
         rvMovies.setLayoutManager(new LinearLayoutManager(this));

@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:background="#1E1E1E"
+    android:background="@color/bg_card"
     android:padding="24dp">
 
     <TextView
@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="ĐÁNH GIÁ &amp; NHẬN XÉT PHIM"
-        android:textColor="#FFC107"
+        android:textColor="@color/accent_gold"
         android:textSize="18sp"
         android:textStyle="bold"
         android:gravity="center"/>
@@ -21,7 +21,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Tên phim"
-        android:textColor="#FFFFFF"
+        android:textColor="@color/text_primary"
         android:textSize="15sp"
         android:gravity="center"
         android:layout_marginTop="4dp"
@@ -32,7 +32,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Chấm điểm (Thang điểm 10):"
-        android:textColor="#AAAAAA"
+        android:textColor="@color/text_sub"
         android:textSize="13sp"/>
 
     <LinearLayout
@@ -49,9 +49,9 @@
             android:numStars="5"
             android:stepSize="0.5"
             android:rating="4.0"
-            android:progressTint="#FFC107"
-            android:progressBackgroundTint="#555555"
-            android:secondaryProgressTint="#FFC107"/>
+            android:progressTint="@color/accent_gold"
+            android:progressBackgroundTint="@color/text_sub"
+            android:secondaryProgressTint="@color/accent_gold"/>
 
         <TextView
             android:id="@+id/tvScoreDisplay"
@@ -59,7 +59,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="12dp"
             android:text="8.0 / 10"
-            android:textColor="#FFC107"
+            android:textColor="@color/accent_gold"
             android:textSize="18sp"
             android:textStyle="bold"/>
     </LinearLayout>
@@ -71,8 +71,8 @@
         android:layout_marginTop="8dp"
         android:background="@drawable/bg_edittext"
         android:hint="Hoặc nhập điểm từ 0.0 đến 10.0"
-        android:textColorHint="#666666"
-        android:textColor="#FFFFFF"
+        android:textColorHint="@color/text_hint"
+        android:textColor="@color/text_primary"
         android:inputType="numberDecimal"
         android:paddingHorizontal="14dp"
         android:textSize="14sp"/>
@@ -82,7 +82,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Viết nhận xét của bạn:"
-        android:textColor="#AAAAAA"
+        android:textColor="@color/text_sub"
         android:textSize="13sp"
         android:layout_marginTop="16dp"/>
 
@@ -94,8 +94,8 @@
         android:background="@drawable/bg_edittext"
         android:gravity="top|start"
         android:hint="Cảm nhận của bạn về bộ phim này (nội dung, diễn xuất, kỹ xảo...)"
-        android:textColorHint="#666666"
-        android:textColor="#FFFFFF"
+        android:textColorHint="@color/text_hint"
+        android:textColor="@color/text_primary"
         android:inputType="textMultiLine"
         android:padding="12dp"
         android:textSize="14sp"/>
@@ -106,8 +106,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
         android:text="Đánh dấu đã xem phim này"
-        android:textColor="#FFFFFF"
-        android:buttonTint="#FFC107"
+        android:textColor="@color/text_primary"
+        android:buttonTint="@color/accent_gold"
         android:checked="true"/>
 
     <!-- BUTTONS -->
@@ -123,8 +123,8 @@
             android:layout_height="48dp"
             android:layout_weight="1"
             android:text="HỦY"
-            android:textColor="#AAAAAA"
-            android:backgroundTint="#333333"
+            android:textColor="@color/text_primary"
+            android:backgroundTint="@color/bg_card"
             android:layout_marginEnd="8dp"/>
 
         <Button
@@ -135,7 +135,7 @@
             android:text="LƯU ĐÁNH GIÁ"
             android:textColor="#121212"
             android:textStyle="bold"
-            android:backgroundTint="#FFC107"
+            android:backgroundTint="@color/accent_gold"
             android:layout_marginStart="8dp"/>
     </LinearLayout>
 </LinearLayout>

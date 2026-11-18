@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/mainRoot"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#121212"
+    android:background="@color/bg_main"
+    android:fitsSystemWindows="true"
     android:orientation="vertical"
     android:padding="20dp">
 
@@ -19,7 +21,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="← QUAY LẠI"
-            android:textColor="#FFC107"
+            android:textColor="@color/accent_gold"
             android:textSize="15sp"
             android:textStyle="bold"
             android:padding="8dp"/>
@@ -29,7 +31,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="TÌM KIẾM &amp; LỌC PHIM"
-        android:textColor="#FFC107"
+        android:textColor="@color/accent_gold"
         android:textSize="22sp"
         android:textStyle="bold"
         android:layout_marginTop="8dp"
@@ -50,7 +52,7 @@
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:src="@android:drawable/ic_menu_search"
-            app:tint="#FFC107"
+            app:tint="@color/accent_gold"
             android:contentDescription="Search Icon"/>
 
         <EditText
@@ -60,8 +62,8 @@
             android:layout_weight="1"
             android:background="@null"
             android:hint="Nhập tên phim cần tìm..."
-            android:textColorHint="#777777"
-            android:textColor="#FFFFFF"
+            android:textColorHint="@color/text_hint"
+            android:textColor="@color/text_primary"
             android:textSize="15sp"
             android:paddingStart="10dp"
             android:paddingEnd="10dp"
@@ -74,7 +76,7 @@
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:src="@android:drawable/ic_menu_close_clear_cancel"
-            app:tint="#888888"
+            app:tint="@color/text_sub"
             android:padding="2dp"
             android:visibility="gone"
             android:contentDescription="Xóa tìm kiếm"/>
@@ -92,7 +94,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Thể loại:"
-            android:textColor="#CCCCCC"
+            android:textColor="@color/text_primary"
             android:textSize="14sp"
             android:textStyle="bold"
             android:layout_marginEnd="10dp"/>
@@ -108,7 +110,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:spinnerMode="dropdown"
-                android:popupBackground="#1E1E1E"/>
+                android:popupBackground="@color/bg_card"/>
         </FrameLayout>
     </LinearLayout>
 
@@ -118,7 +120,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Đang hiển thị kết quả..."
-        android:textColor="#FFC107"
+        android:textColor="@color/accent_gold"
         android:textSize="13sp"
         android:layout_marginBottom="10dp"/>
 
@@ -130,7 +132,7 @@
         android:gravity="center"
         android:padding="40dp"
         android:text="Không tìm thấy phim phù hợp với từ khóa hoặc thể loại đã chọn."
-        android:textColor="#AAAAAA"
+        android:textColor="@color/text_sub"
         android:textSize="14sp"
         android:visibility="gone"/>
 

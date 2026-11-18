@@ -5,7 +5,7 @@
     android:orientation="horizontal"
     android:padding="10dp"
     android:layout_marginBottom="12dp"
-    android:background="@drawable/bg_movie_item"
+    android:background="@drawable/bg_card"
     android:gravity="center_vertical">
 
     <ImageView
@@ -14,7 +14,7 @@
         android:layout_height="100dp"
         android:scaleType="centerCrop"
         android:src="@android:drawable/ic_menu_gallery"
-        android:background="#333333"
+        android:background="@color/poster_placeholder"
         android:contentDescription="Poster phim"/>
 
     <LinearLayout
@@ -29,7 +29,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Tên phim"
-            android:textColor="#FFFFFF"
+            android:textColor="@color/text_primary"
             android:textSize="17sp"
             android:textStyle="bold"
             android:maxLines="2"/>
@@ -39,7 +39,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Thể loại"
-            android:textColor="#FFC107"
+            android:textColor="@color/accent_gold"
             android:textSize="13sp"
             android:layout_marginTop="8dp"/>
 
@@ -48,7 +48,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="2026"
-            android:textColor="#AAAAAA"
+            android:textColor="@color/text_sub"
             android:textSize="13sp"
             android:layout_marginTop="5dp"/>
 
@@ -60,7 +60,7 @@
         android:layout_height="48dp"
         android:gravity="center"
         android:text="♡"
-        android:textColor="#AAAAAA"
+        android:textColor="@color/text_sub"
         android:textSize="28sp"
         android:clickable="true"
         android:focusable="true"
