@@ -56,6 +56,15 @@ public class AddMovieActivity extends AppCompatActivity {
         PreferenceManager.applySavedTheme(this);
         setContentView(R.layout.activity_add_movie);
 
+        View mainRoot = findViewById(R.id.mainRoot);
+        if (mainRoot != null) {
+            androidx.core.view.ViewCompat.setOnApplyWindowInsetsListener(mainRoot, (v, insets) -> {
+                androidx.core.graphics.Insets systemBars = insets.getInsets(androidx.core.view.WindowInsetsCompat.Type.systemBars());
+                v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
+                return insets;
+            });
+        }
+
         tvAddMovieHeader = findViewById(R.id.tvAddMovieHeader);
         edtTitle = findViewById(R.id.edtTitle);
         edtGenre = findViewById(R.id.edtGenre);

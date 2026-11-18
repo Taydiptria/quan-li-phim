@@ -29,6 +29,15 @@ public class FavoriteActivity extends AppCompatActivity {
         PreferenceManager.applySavedTheme(this);
         setContentView(R.layout.activity_favorite);
 
+        View mainRoot = findViewById(R.id.mainRoot);
+        if (mainRoot != null) {
+            androidx.core.view.ViewCompat.setOnApplyWindowInsetsListener(mainRoot, (v, insets) -> {
+                androidx.core.graphics.Insets systemBars = insets.getInsets(androidx.core.view.WindowInsetsCompat.Type.systemBars());
+                v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
+                return insets;
+            });
+        }
+
         btnBack = findViewById(R.id.btnBack);
         tvEmpty = findViewById(R.id.tvEmpty);
         rvFavoriteMovies = findViewById(R.id.rvFavoriteMovies);

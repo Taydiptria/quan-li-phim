@@ -42,6 +42,15 @@ public class MovieDetailActivity extends AppCompatActivity {
         PreferenceManager.applySavedTheme(this);
         setContentView(R.layout.activity_movie_detail);
 
+        View mainRoot = findViewById(R.id.mainRoot);
+        if (mainRoot != null) {
+            androidx.core.view.ViewCompat.setOnApplyWindowInsetsListener(mainRoot, (v, insets) -> {
+                androidx.core.graphics.Insets systemBars = insets.getInsets(androidx.core.view.WindowInsetsCompat.Type.systemBars());
+                v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
+                return insets;
+            });
+        }
+
         imgPoster = findViewById(R.id.imgDetailPoster);
         tvTitle = findViewById(R.id.tvDetailTitle);
         tvGenre = findViewById(R.id.tvDetailGenre);

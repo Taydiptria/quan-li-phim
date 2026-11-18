@@ -3,11 +3,14 @@ package com.example.quanliphim;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.graphics.Insets;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowInsetsCompat;
+import androidx.core.widget.NestedScrollView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -22,10 +25,12 @@ import java.util.concurrent.Executors;
 public class MainActivity extends AppCompatActivity {
 
     RecyclerView rvMovies, rvFavoriteMovies;
+    NestedScrollView mainScrollView;
 
     TextView tvEmpty, tvFavoriteEmpty;
     ImageView btnAddMovie, btnStatistics, btnProfile;
-    Button btnQuickStats, btnQuickFavorites, btnQuickWatched;
+
+    View btnNavHome, btnNavFavorites, btnNavWatched, btnNavStats, btnNavLibrary;
 
     MovieAdapter movieAdapter;
     FavouriteMovieAdapter favoriteAdapter;
@@ -38,18 +43,33 @@ public class MainActivity extends AppCompatActivity {
         PreferenceManager.applySavedTheme(this);
         setContentView(R.layout.activity_main);
 
+        // Window insets to prevent status bar and bottom gesture bar overlaps
+        View mainRoot = findViewById(R.id.mainRoot);
+        if (mainRoot != null) {
+            ViewCompat.setOnApplyWindowInsetsListener(mainRoot, (v, insets) -> {
+                Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
+                v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
+                return insets;
+            });
+        }
+
+        mainScrollView = findViewById(R.id.mainScrollView);
         rvMovies = findViewById(R.id.rvMovies);
         rvFavoriteMovies = findViewById(R.id.rvFavoriteMovies);
 
         tvEmpty = findViewById(R.id.tvEmpty);
         tvFavoriteEmpty = findViewById(R.id.tvFavoriteEmpty);
+
         btnAddMovie = findViewById(R.id.btnAddMovie);
         btnStatistics = findViewById(R.id.btnStatistics);
         btnProfile = findViewById(R.id.btnProfile);
 
-        btnQuickStats = findViewById(R.id.btnQuickStats);
-        btnQuickFavorites = findViewById(R.id.btnQuickFavorites);
-        btnQuickWatched = findViewById(R.id.btnQuickWatched);
+        // Bottom Navigation Tabs
+        btnNavHome = findViewById(R.id.btnNavHome);
+        btnNavFavorites = findViewById(R.id.btnNavFavorites);
+        btnNavWatched = findViewById(R.id.btnNavWatched);
+        btnNavStats = findViewById(R.id.btnNavStats);
+        btnNavLibrary = findViewById(R.id.btnNavLibrary);
 
         btnAddMovie.setOnClickListener(v -> {
             Intent intent = new Intent(MainActivity.this, AddMovieActivity.class);
@@ -61,22 +81,48 @@ public class MainActivity extends AppCompatActivity {
             startActivity(intent);
         };
         btnStatistics.setOnClickListener(openStats);
-        btnQuickStats.setOnClickListener(openStats);
 
         btnProfile.setOnClickListener(v -> {
             Intent intent = new Intent(MainActivity.this, ProfileActivity.class);
             startActivity(intent);
         });
 
-        btnQuickFavorites.setOnClickListener(v -> {
-            Intent intent = new Intent(MainActivity.this, FavoriteActivity.class);
-            startActivity(intent);
-        });
+        // Setup Bottom Nav Listeners
+        if (btnNavHome != null) {
+            btnNavHome.setOnClickListener(v -> {
+                if (mainScrollView != null) {
+                    mainScrollView.smoothScrollTo(0, 0);
+                }
+            });
+        }
 
-        btnQuickWatched.setOnClickListener(v -> {
-            Intent intent = new Intent(MainActivity.this, WatchedActivity.class);
-            startActivity(intent);
-        });
+        if (btnNavFavorites != null) {
+            btnNavFavorites.setOnClickListener(v -> {
+                Intent intent = new Intent(MainActivity.this, FavoriteActivity.class);
+                startActivity(intent);
+            });
+        }
+
+        if (btnNavWatched != null) {
+            btnNavWatched.setOnClickListener(v -> {
+                Intent intent = new Intent(MainActivity.this, WatchedActivity.class);
+                startActivity(intent);
+            });
+        }
+
+        if (btnNavStats != null) {
+            btnNavStats.setOnClickListener(v -> {
+                Intent intent = new Intent(MainActivity.this, StatisticsActivity.class);
+                startActivity(intent);
+            });
+        }
+
+        if (btnNavLibrary != null) {
+            btnNavLibrary.setOnClickListener(v -> {
+                Intent intent = new Intent(MainActivity.this, MovieLibraryActivity.class);
+                startActivity(intent);
+            });
+        }
 
         // Danh sách phim mới thêm: hiển thị dọc
         rvMovies.setLayoutManager(new LinearLayoutManager(this));
