@@ -24,7 +24,8 @@ public class MainActivity extends AppCompatActivity {
     RecyclerView rvMovies, rvFavoriteMovies;
 
     TextView tvEmpty, tvFavoriteEmpty;
-    ImageView btnAddMovie, btnStatistics, btnProfile;
+    ImageView btnAddMovie, btnStatistics, btnProfile, btnSearch;
+    View btnOpenSearch;
     Button btnQuickStats, btnQuickFavorites, btnQuickWatched;
 
     MovieAdapter movieAdapter;
@@ -43,9 +44,18 @@ public class MainActivity extends AppCompatActivity {
 
         tvEmpty = findViewById(R.id.tvEmpty);
         tvFavoriteEmpty = findViewById(R.id.tvFavoriteEmpty);
+        btnSearch = findViewById(R.id.btnSearch);
+        btnOpenSearch = findViewById(R.id.btnOpenSearch);
         btnAddMovie = findViewById(R.id.btnAddMovie);
         btnStatistics = findViewById(R.id.btnStatistics);
         btnProfile = findViewById(R.id.btnProfile);
+
+        View.OnClickListener openSearch = v -> {
+            Intent intent = new Intent(MainActivity.this, SearchActivity.class);
+            startActivity(intent);
+        };
+        if (btnSearch != null) btnSearch.setOnClickListener(openSearch);
+        if (btnOpenSearch != null) btnOpenSearch.setOnClickListener(openSearch);
 
         btnQuickStats = findViewById(R.id.btnQuickStats);
         btnQuickFavorites = findViewById(R.id.btnQuickFavorites);

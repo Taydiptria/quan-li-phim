@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#121212"
+    android:orientation="vertical"
+    android:padding="20dp">
+
+    <!-- HEADER -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:id="@+id/btnBack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="← QUAY LẠI"
+            android:textColor="#FFC107"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:padding="8dp"/>
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="TÌM KIẾM &amp; LỌC PHIM"
+        android:textColor="#FFC107"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="16dp"/>
+
+    <!-- SEARCH INPUT BOX -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_edittext"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingHorizontal="12dp"
+        android:paddingVertical="4dp"
+        android:layout_marginBottom="12dp">
+
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@android:drawable/ic_menu_search"
+            app:tint="#FFC107"
+            android:contentDescription="Search Icon"/>
+
+        <EditText
+            android:id="@+id/edtSearchKeyword"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_weight="1"
+            android:background="@null"
+            android:hint="Nhập tên phim cần tìm..."
+            android:textColorHint="#777777"
+            android:textColor="#FFFFFF"
+            android:textSize="15sp"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
+            android:inputType="text"
+            android:maxLines="1"
+            android:imeOptions="actionSearch"/>
+
+        <ImageView
+            android:id="@+id/btnClearSearch"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@android:drawable/ic_menu_close_clear_cancel"
+            app:tint="#888888"
+            android:padding="2dp"
+            android:visibility="gone"
+            android:contentDescription="Xóa tìm kiếm"/>
+    </LinearLayout>
+
+    <!-- GENRE FILTER ROW -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:layout_marginBottom="14dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Thể loại:"
+            android:textColor="#CCCCCC"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:layout_marginEnd="10dp"/>
+
+        <FrameLayout
+            android:layout_width="0dp"
+            android:layout_height="44dp"
+            android:layout_weight="1"
+            android:background="@drawable/bg_edittext">
+
+            <Spinner
+                android:id="@+id/spinnerGenre"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:spinnerMode="dropdown"
+                android:popupBackground="#1E1E1E"/>
+        </FrameLayout>
+    </LinearLayout>
+
+    <!-- RESULT SUMMARY -->
+    <TextView
+        android:id="@+id/tvResultCount"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Đang hiển thị kết quả..."
+        android:textColor="#FFC107"
+        android:textSize="13sp"
+        android:layout_marginBottom="10dp"/>
+
+    <!-- EMPTY STATE -->
+    <TextView
+        android:id="@+id/tvEmptySearch"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:padding="40dp"
+        android:text="Không tìm thấy phim phù hợp với từ khóa hoặc thể loại đã chọn."
+        android:textColor="#AAAAAA"
+        android:textSize="14sp"
+        android:visibility="gone"/>
+
+    <!-- MOVIE LIST -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvSearchResults"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clipToPadding="false"/>
+
+</LinearLayout>
