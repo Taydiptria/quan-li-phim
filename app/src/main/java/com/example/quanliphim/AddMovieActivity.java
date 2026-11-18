@@ -126,10 +126,10 @@ public class AddMovieActivity extends AppCompatActivity {
     private void setupGenreSpinner() {
         ArrayAdapter<String> adapter = new ArrayAdapter<>(
                 this,
-                android.R.layout.simple_spinner_item,
+                R.layout.item_spinner_theme,
                 genreOptions
         );
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        adapter.setDropDownViewResource(R.layout.item_spinner_theme);
         spinnerGenre.setAdapter(adapter);
     }
 

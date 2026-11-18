@@ -133,7 +133,7 @@
             android:layout_height="48dp"
             android:layout_weight="1"
             android:text="LƯU ĐÁNH GIÁ"
-            android:textColor="#121212"
+            android:textColor="@color/text_on_accent"
             android:textStyle="bold"
             android:backgroundTint="@color/accent_gold"
             android:layout_marginStart="8dp"/>
