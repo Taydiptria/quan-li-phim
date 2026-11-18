@@ -180,18 +180,14 @@
                 android:textSize="12sp"
                 android:layout_marginTop="12dp"/>
 
-            <EditText
-                android:id="@+id/edtProfileFavGenre"
+            <Spinner
+                android:id="@+id/spinnerProfileFavGenre"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
                 android:layout_marginTop="4dp"
                 android:background="@drawable/bg_edittext"
-                android:hint="Ví dụ: Hành động, Viễn tưởng, Tình cảm"
-                android:textColorHint="#666666"
-                android:textColor="#FFFFFF"
                 android:paddingHorizontal="12dp"
-                android:textSize="14sp"
-                android:inputType="text"/>
+                android:popupBackground="#1E1E1E"/>
 
             <TextView
                 android:layout_width="wrap_content"

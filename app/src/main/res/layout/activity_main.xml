@@ -287,6 +287,59 @@
                 android:textColor="@color/text_secondary"
                 android:textSize="11sp"
                 android:layout_marginTop="2dp"/>
+            <TextView
+                android:id="@+id/btnQuickStats"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="📊 Thống kê"
+                android:textColor="#FFFFFF"
+                android:textSize="13sp"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:maxLines="1"
+                android:singleLine="true"
+                android:background="@drawable/bg_movie_item"
+                android:paddingVertical="12dp"
+                android:layout_marginEnd="4dp"
+                android:clickable="true"
+                android:focusable="true"/>
+
+            <TextView
+                android:id="@+id/btnQuickFavorites"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="♥ Yêu thích"
+                android:textColor="#FFFFFF"
+                android:textSize="13sp"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:maxLines="1"
+                android:singleLine="true"
+                android:background="@drawable/bg_movie_item"
+                android:paddingVertical="12dp"
+                android:layout_marginHorizontal="4dp"
+                android:clickable="true"
+                android:focusable="true"/>
+
+            <TextView
+                android:id="@+id/btnQuickWatched"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="✔ Đã xem"
+                android:textColor="#FFFFFF"
+                android:textSize="13sp"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:maxLines="1"
+                android:singleLine="true"
+                android:background="@drawable/bg_movie_item"
+                android:paddingVertical="12dp"
+                android:layout_marginStart="4dp"
+                android:clickable="true"
+                android:focusable="true"/>
         </LinearLayout>
 
         <!-- TAB 3: ĐÃ XEM -->

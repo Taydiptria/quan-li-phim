@@ -44,16 +44,23 @@
             android:inputType="text|textAutoCorrect"
             android:maxLines="1"/>
 
-        <EditText
-            android:id="@+id/edtGenre"
+        <!-- GENRE DROPDOWN SELECTOR (SYNCHRONIZED WITH SEARCH / FILTER) -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="THỂ LOẠI PHIM (*):"
+            android:textColor="#AAAAAA"
+            android:textSize="12sp"
+            android:layout_marginTop="12dp"/>
+
+        <Spinner
+            android:id="@+id/spinnerGenre"
             android:layout_width="match_parent"
-            android:layout_height="55dp"
-            android:hint="Thể loại (*)"
-            android:textColor="#FFFFFF"
-            android:textColorHint="#888888"
-            android:backgroundTint="#FFC107"
-            android:inputType="text|textAutoCorrect"
-            android:maxLines="1"/>
+            android:layout_height="52dp"
+            android:layout_marginTop="6dp"
+            android:background="@drawable/bg_edittext"
+            android:paddingHorizontal="12dp"
+            android:popupBackground="#1E1E1E"/>
 
         <EditText
             android:id="@+id/edtDirector"
@@ -64,7 +71,8 @@
             android:textColorHint="#888888"
             android:backgroundTint="#FFC107"
             android:inputType="text|textAutoCorrect"
-            android:maxLines="1"/>
+            android:maxLines="1"
+            android:layout_marginTop="8dp"/>
 
         <EditText
             android:id="@+id/edtYear"
@@ -94,7 +102,7 @@
             android:layout_height="wrap_content"
             android:text="ẢNH POSTER PHIM:"
             android:textColor="#AAAAAA"
-            android:textSize="13sp"
+            android:textSize="12sp"
             android:layout_marginTop="16dp"/>
 
         <LinearLayout
@@ -104,7 +112,7 @@
             android:orientation="vertical"
             android:padding="14dp"
             android:gravity="center"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="6dp"
             android:layout_marginBottom="12dp">
 
             <ImageView

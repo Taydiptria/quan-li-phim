@@ -30,7 +30,7 @@ public class FavouriteMovieAdapter extends RecyclerView.Adapter<FavouriteMovieAd
     }
 
     public void setMovies(List<MovieEntity> movies) {
-        this.movies = movies;
+        this.movies = movies != null ? movies : new ArrayList<>();
         notifyDataSetChanged();
     }
 
@@ -47,13 +47,16 @@ public class FavouriteMovieAdapter extends RecyclerView.Adapter<FavouriteMovieAd
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         MovieEntity movie = movies.get(position);
 
-        holder.tvTitle.setText(movie.title);
+        holder.tvTitle.setText(movie.title != null ? movie.title : "");
 
-        if (movie.poster != null && !movie.poster.isEmpty()) {
-            holder.imgPoster.setImageURI(Uri.parse(movie.poster));
+        if (movie.poster != null && !movie.poster.trim().isEmpty()) {
+            try {
+                holder.imgPoster.setImageURI(Uri.parse(movie.poster));
+            } catch (Exception e) {
+                holder.imgPoster.setImageResource(android.R.drawable.ic_menu_gallery);
+            }
         } else {
-            holder.imgPoster.setImageResource(
-                    android.R.drawable.ic_menu_gallery);
+            holder.imgPoster.setImageResource(android.R.drawable.ic_menu_gallery);
         }
 
         holder.itemView.setOnClickListener(v -> {

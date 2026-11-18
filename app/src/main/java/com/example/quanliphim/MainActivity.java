@@ -30,8 +30,9 @@ public class MainActivity extends AppCompatActivity {
     TextView tvEmpty, tvFavoriteEmpty;
     ImageView btnAddMovie, btnProfile, btnThemeToggle;
     View btnOpenSearch;
-
     View btnNavHome, btnNavFavorites, btnNavWatched, btnNavStats, btnNavSearch;
+
+    TextView btnQuickStats, btnQuickFavorites, btnQuickWatched;
 
     MovieAdapter movieAdapter;
     FavouriteMovieAdapter favoriteAdapter;
