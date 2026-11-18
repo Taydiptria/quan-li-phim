@@ -83,8 +83,8 @@ public class SearchActivity extends AppCompatActivity {
         String[] defaultGenres = {"Tất cả", "Hành động", "Tình cảm", "Hài hước", "Kinh dị", "Viễn tưởng", "Hoạt hình", "Tâm lý", "Phiêu lưu", "Võ thuật", "Tài liệu", "Gia đình"};
         genreList.addAll(Arrays.asList(defaultGenres));
 
-        spinnerAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, genreList);
-        spinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinnerAdapter = new ArrayAdapter<>(this, R.layout.item_spinner_theme, genreList);
+        spinnerAdapter.setDropDownViewResource(R.layout.item_spinner_theme);
         spinnerGenre.setAdapter(spinnerAdapter);
 
         spinnerGenre.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {

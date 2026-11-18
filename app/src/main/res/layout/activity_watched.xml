@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#121212"
+    android:background="@color/bg_main"
     android:orientation="vertical"
     android:padding="20dp">
 
@@ -50,7 +50,7 @@
             android:layout_width="22dp"
             android:layout_height="22dp"
             android:src="@android:drawable/ic_menu_search"
-            app:tint="#FFC107"
+            app:tint="@color/accent_gold"
             android:contentDescription="Search Icon"/>
 
         <EditText
@@ -59,8 +59,8 @@
             android:layout_height="44dp"
             android:background="@null"
             android:hint="Tìm trong danh sách đã xem..."
-            android:textColorHint="#777777"
-            android:textColor="#FFFFFF"
+            android:textColorHint="@color/text_hint"
+            android:textColor="@color/text_primary"
             android:textSize="14sp"
             android:paddingStart="10dp"
             android:paddingEnd="10dp"
@@ -73,7 +73,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Tổng số: 0 phim đã xem"
-        android:textColor="#888888"
+        android:textColor="@color/text_sub"
         android:textSize="13sp"
         android:layout_marginBottom="10dp"/>
 
@@ -84,7 +84,7 @@
         android:gravity="center"
         android:padding="40dp"
         android:text="Bạn chưa đánh dấu bộ phim nào là đã xem."
-        android:textColor="#AAAAAA"
+        android:textColor="@color/text_sub"
         android:textSize="14sp"
         android:visibility="gone"/>
 

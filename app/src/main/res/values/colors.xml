@@ -16,6 +16,7 @@
     <color name="text_secondary">#4B5563</color> <!-- Chữ mô tả nội dung -->
     <color name="text_sub">#6B7280</color> <!-- Chữ phụ, ngày tháng, đếm số -->
     <color name="text_hint">#9CA3AF</color> <!-- Chữ gợi ý nhập liệu -->
+    <color name="text_on_accent">#1F2937</color>
 
     <color name="accent_gold">#D97706</color> <!-- Màu điểm nhấn Vàng Cam -->
     <color name="accent_gold_bright">#F59E0B</color>
