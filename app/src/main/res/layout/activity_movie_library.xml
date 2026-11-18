@@ -4,7 +4,7 @@
     android:id="@+id/mainRoot"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#121212"
+    android:background="@color/bg_main"
     android:fitsSystemWindows="true"
     android:orientation="vertical"
     android:padding="20dp">
@@ -21,7 +21,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="← QUAY LẠI"
-            android:textColor="#FFC107"
+            android:textColor="@color/accent_gold"
             android:textSize="15sp"
             android:textStyle="bold"
             android:padding="8dp"/>
@@ -38,7 +38,7 @@
             android:src="@android:drawable/ic_menu_add"
             android:background="@drawable/bg_movie_item"
             android:padding="9dp"
-            app:tint="#FFC107"
+            app:tint="@color/accent_gold"
             android:contentDescription="Thêm phim mới"/>
     </LinearLayout>
 
@@ -46,7 +46,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="KHO PHIM CỦA BẠN"
-        android:textColor="#FFC107"
+        android:textColor="@color/accent_gold"
         android:textSize="24sp"
         android:textStyle="bold"
         android:layout_marginTop="12dp"/>
@@ -56,7 +56,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Tổng số phim: 0"
-        android:textColor="#888888"
+        android:textColor="@color/text_sub"
         android:textSize="13sp"
         android:layout_marginTop="4dp"
         android:layout_marginBottom="14dp"/>
@@ -68,8 +68,8 @@
         android:layout_height="48dp"
         android:background="@drawable/bg_edittext"
         android:hint="🔍 Tìm kiếm theo tên hoặc thể loại..."
-        android:textColor="#FFFFFF"
-        android:textColorHint="#777777"
+        android:textColor="@color/text_primary"
+        android:textColorHint="@color/text_hint"
         android:paddingHorizontal="14dp"
         android:textSize="14sp"
         android:inputType="text"
@@ -82,7 +82,7 @@
         android:gravity="center"
         android:padding="40dp"
         android:text="Chưa có bộ phim nào trong kho phim."
-        android:textColor="#AAAAAA"
+        android:textColor="@color/text_sub"
         android:textSize="14sp"
         android:visibility="gone"/>
 

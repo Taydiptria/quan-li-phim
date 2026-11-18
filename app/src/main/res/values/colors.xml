@@ -1,5 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!-- Common colors -->
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <!-- Light Theme Colors -->
+    <color name="bg_main">#F4F5F7</color>
+    <color name="bg_card">#FFFFFF</color>
+    <color name="bg_card_gold">#FFFDF5</color>
+    <color name="bg_card_stroke">#E2E8F0</color>
+    <color name="bg_edittext">#FFFFFF</color>
+    <color name="edittext_stroke">#CBD5E1</color>
+
+    <color name="text_primary">#1E293B</color>
+    <color name="text_secondary">#475569</color>
+    <color name="text_sub">#64748B</color>
+    <color name="text_hint">#94A3B8</color>
+
+    <color name="accent_gold">#D97706</color>
+    <color name="accent_gold_bright">#FFC107</color>
+    <color name="bottom_nav_bg">#FFFFFF</color>
+    <color name="bottom_nav_border">#E2E8F0</color>
+    <color name="poster_placeholder">#E2E8F0</color>
 </resources>

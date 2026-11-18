@@ -4,7 +4,7 @@
     android:id="@+id/mainRoot"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#121212"
+    android:background="@color/bg_main"
     android:fitsSystemWindows="true"
     android:fillViewport="true">
 
@@ -26,7 +26,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="← QUAY LẠI"
-                android:textColor="#FFC107"
+                android:textColor="@color/accent_gold"
                 android:textSize="15sp"
                 android:textStyle="bold"
                 android:padding="8dp"/>
@@ -36,7 +36,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="HỒ SƠ &amp; CÀI ĐẶT"
-            android:textColor="#FFC107"
+            android:textColor="@color/accent_gold"
             android:textSize="24sp"
             android:textStyle="bold"
             android:layout_marginTop="12dp"/>
@@ -59,7 +59,7 @@
                 android:src="@android:drawable/ic_menu_myplaces"
                 android:background="@drawable/bg_movie_item"
                 android:padding="12dp"
-                app:tint="#FFC107"
+                app:tint="@color/accent_gold"
                 android:clickable="true"
                 android:focusable="true"
                 android:contentDescription="Ảnh đại diện"/>
@@ -69,7 +69,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="📷 Đổi ảnh đại diện"
-                android:textColor="#FFC107"
+                android:textColor="@color/accent_gold"
                 android:textSize="12sp"
                 android:padding="4dp"
                 android:layout_marginTop="4dp"/>
@@ -79,7 +79,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Tên người dùng"
-                android:textColor="#FFFFFF"
+                android:textColor="@color/text_primary"
                 android:textSize="20sp"
                 android:textStyle="bold"
                 android:layout_marginTop="10dp"/>
@@ -89,7 +89,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="user@example.com"
-                android:textColor="#AAAAAA"
+                android:textColor="@color/text_sub"
                 android:textSize="13sp"
                 android:layout_marginTop="2dp"/>
         </LinearLayout>
@@ -99,7 +99,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="THÔNG TIN CÁ NHÂN"
-            android:textColor="#FFC107"
+            android:textColor="@color/accent_gold"
             android:textSize="15sp"
             android:textStyle="bold"
             android:layout_marginBottom="12dp"/>
@@ -116,7 +116,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Họ và tên:"
-                android:textColor="#AAAAAA"
+                android:textColor="@color/text_sub"
                 android:textSize="12sp"/>
 
             <EditText
@@ -126,8 +126,8 @@
                 android:layout_marginTop="4dp"
                 android:background="@drawable/bg_edittext"
                 android:hint="Nhập họ và tên"
-                android:textColorHint="#666666"
-                android:textColor="#FFFFFF"
+                android:textColorHint="@color/text_hint"
+                android:textColor="@color/text_primary"
                 android:paddingHorizontal="12dp"
                 android:textSize="14sp"
                 android:inputType="textPersonName"/>
@@ -136,7 +136,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Email liên hệ:"
-                android:textColor="#AAAAAA"
+                android:textColor="@color/text_sub"
                 android:textSize="12sp"
                 android:layout_marginTop="12dp"/>
 
@@ -147,8 +147,8 @@
                 android:layout_marginTop="4dp"
                 android:background="@drawable/bg_edittext"
                 android:hint="Nhập địa chỉ email"
-                android:textColorHint="#666666"
-                android:textColor="#FFFFFF"
+                android:textColorHint="@color/text_hint"
+                android:textColor="@color/text_primary"
                 android:paddingHorizontal="12dp"
                 android:textSize="14sp"
                 android:inputType="textEmailAddress"/>
@@ -157,7 +157,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Số điện thoại:"
-                android:textColor="#AAAAAA"
+                android:textColor="@color/text_sub"
                 android:textSize="12sp"
                 android:layout_marginTop="12dp"/>
 
@@ -168,8 +168,8 @@
                 android:layout_marginTop="4dp"
                 android:background="@drawable/bg_edittext"
                 android:hint="Nhập số điện thoại"
-                android:textColorHint="#666666"
-                android:textColor="#FFFFFF"
+                android:textColorHint="@color/text_hint"
+                android:textColor="@color/text_primary"
                 android:paddingHorizontal="12dp"
                 android:textSize="14sp"
                 android:inputType="phone"/>
@@ -178,7 +178,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Thể loại phim yêu thích:"
-                android:textColor="#AAAAAA"
+                android:textColor="@color/text_sub"
                 android:textSize="12sp"
                 android:layout_marginTop="12dp"/>
 
@@ -189,8 +189,8 @@
                 android:layout_marginTop="4dp"
                 android:background="@drawable/bg_edittext"
                 android:hint="Ví dụ: Hành động, Viễn tưởng, Tình cảm"
-                android:textColorHint="#666666"
-                android:textColor="#FFFFFF"
+                android:textColorHint="@color/text_hint"
+                android:textColor="@color/text_primary"
                 android:paddingHorizontal="12dp"
                 android:textSize="14sp"
                 android:inputType="text"/>
@@ -199,7 +199,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Giới thiệu bản thân:"
-                android:textColor="#AAAAAA"
+                android:textColor="@color/text_sub"
                 android:textSize="12sp"
                 android:layout_marginTop="12dp"/>
 
@@ -210,8 +210,8 @@
                 android:layout_marginTop="4dp"
                 android:background="@drawable/bg_edittext"
                 android:hint="Mô tả sở thích xem phim của bạn..."
-                android:textColorHint="#666666"
-                android:textColor="#FFFFFF"
+                android:textColorHint="@color/text_hint"
+                android:textColor="@color/text_primary"
                 android:gravity="top|start"
                 android:padding="12dp"
                 android:textSize="14sp"
@@ -225,7 +225,7 @@
                 android:text="LƯU THÔNG TIN CÁ NHÂN"
                 android:textColor="#121212"
                 android:textStyle="bold"
-                android:backgroundTint="#FFC107"/>
+                android:backgroundTint="@color/accent_gold"/>
         </LinearLayout>
 
         <!-- THEME SETTINGS -->
@@ -233,7 +233,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="CÀI ĐẶT GIAO DIỆN SÁNG / TỐI"
-            android:textColor="#FFC107"
+            android:textColor="@color/accent_gold"
             android:textSize="15sp"
             android:textStyle="bold"
             android:layout_marginBottom="12dp"/>
@@ -257,8 +257,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Giao diện Tối (Dark Theme)"
-                    android:textColor="#FFFFFF"
-                    android:buttonTint="#FFC107"
+                    android:textColor="@color/text_primary"
+                    android:buttonTint="@color/accent_gold"
                     android:paddingVertical="8dp"/>
 
                 <RadioButton
@@ -266,8 +266,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Giao diện Sáng (Light Theme)"
-                    android:textColor="#FFFFFF"
-                    android:buttonTint="#FFC107"
+                    android:textColor="@color/text_primary"
+                    android:buttonTint="@color/accent_gold"
                     android:paddingVertical="8dp"/>
 
                 <RadioButton
@@ -275,8 +275,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Theo mặc định hệ thống (System Default)"
-                    android:textColor="#FFFFFF"
-                    android:buttonTint="#FFC107"
+                    android:textColor="@color/text_primary"
+                    android:buttonTint="@color/accent_gold"
                     android:paddingVertical="8dp"/>
             </RadioGroup>
         </LinearLayout>
@@ -286,7 +286,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="LỐI TẮC NHANH"
-            android:textColor="#FFC107"
+            android:textColor="@color/accent_gold"
             android:textSize="15sp"
             android:textStyle="bold"
             android:layout_marginBottom="12dp"/>
@@ -302,10 +302,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
                 android:text="📊 Xem Thống Kê Phim"
-                android:textColor="#FFFFFF"
+                android:textColor="@color/text_primary"
                 android:gravity="start|center_vertical"
                 android:paddingStart="16dp"
-                android:backgroundTint="#333333"
+                android:backgroundTint="@color/bg_card"
                 android:layout_marginBottom="8dp"/>
 
             <Button
@@ -313,10 +313,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
                 android:text="♥ Xem Phim Yêu Thích"
-                android:textColor="#FFFFFF"
+                android:textColor="@color/text_primary"
                 android:gravity="start|center_vertical"
                 android:paddingStart="16dp"
-                android:backgroundTint="#333333"
+                android:backgroundTint="@color/bg_card"
                 android:layout_marginBottom="8dp"/>
 
             <Button
@@ -324,10 +324,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
                 android:text="✔ Xem Phim Đã Xem"
-                android:textColor="#FFFFFF"
+                android:textColor="@color/text_primary"
                 android:gravity="start|center_vertical"
                 android:paddingStart="16dp"
-                android:backgroundTint="#333333"/>
+                android:backgroundTint="@color/bg_card"/>
         </LinearLayout>
 
     </LinearLayout>

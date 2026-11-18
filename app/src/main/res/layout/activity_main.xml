@@ -5,7 +5,7 @@
     android:id="@+id/mainRoot"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#121212"
+    android:background="@color/bg_main"
     android:orientation="vertical">
 
     <androidx.core.widget.NestedScrollView
@@ -38,7 +38,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="MOVIEBOX"
-                        android:textColor="#FFC107"
+                        android:textColor="@color/accent_gold"
                         android:textSize="25sp"
                         android:textStyle="bold"
                         android:letterSpacing="0.08"/>
@@ -47,7 +47,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Your personal movie collection"
-                        android:textColor="#AAAAAA"
+                        android:textColor="@color/text_sub"
                         android:textSize="12sp"/>
                 </LinearLayout>
 
@@ -59,34 +59,45 @@
 
                     <ImageView
                         android:id="@+id/btnAddMovie"
-                        android:layout_width="42dp"
-                        android:layout_height="42dp"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
                         android:src="@android:drawable/ic_menu_add"
                         android:background="@drawable/bg_movie_item"
-                        android:padding="10dp"
-                        app:tint="#FFC107"
-                        android:layout_marginEnd="8dp"
+                        android:padding="9dp"
+                        app:tint="@color/accent_gold"
+                        android:layout_marginEnd="6dp"
                         android:contentDescription="Thêm phim"/>
 
                     <ImageView
+                        android:id="@+id/btnThemeToggle"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:src="@android:drawable/ic_menu_view"
+                        android:background="@drawable/bg_movie_item"
+                        android:padding="9dp"
+                        app:tint="@color/accent_gold"
+                        android:layout_marginEnd="6dp"
+                        android:contentDescription="Đổi giao diện Sáng / Tối"/>
+
+                    <ImageView
                         android:id="@+id/btnStatistics"
-                        android:layout_width="42dp"
-                        android:layout_height="42dp"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
                         android:src="@android:drawable/ic_menu_sort_by_size"
                         android:background="@drawable/bg_movie_item"
-                        android:padding="10dp"
-                        app:tint="#FFC107"
-                        android:layout_marginEnd="8dp"
+                        android:padding="9dp"
+                        app:tint="@color/accent_gold"
+                        android:layout_marginEnd="6dp"
                         android:contentDescription="Thống kê"/>
 
                     <ImageView
                         android:id="@+id/btnProfile"
-                        android:layout_width="42dp"
-                        android:layout_height="42dp"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
                         android:src="@android:drawable/ic_menu_myplaces"
                         android:background="@drawable/bg_movie_item"
-                        android:padding="10dp"
-                        app:tint="#FFC107"
+                        android:padding="9dp"
+                        app:tint="@color/accent_gold"
                         android:contentDescription="Cá nhân và Cài đặt"/>
                 </LinearLayout>
             </LinearLayout>
@@ -134,7 +145,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="24dp"
                 android:text="Phim yêu thích"
-                android:textColor="#FFFFFF"
+                android:textColor="@color/text_primary"
                 android:textSize="19sp"
                 android:textStyle="bold"/>
 
@@ -143,24 +154,24 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Chưa có phim yêu thích"
-                android:textColor="#888888"
+                android:textColor="@color/text_sub"
                 android:padding="12dp"
                 android:visibility="gone"/>
 
-            <!-- PHIM MOI THEM -->
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rvFavoriteMovies"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"
-                android:nestedScrollingEnabled="false" />
+                android:nestedScrollingEnabled="false"/>
 
+            <!-- PHIM MOI THEM -->
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="24dp"
                 android:text="Phim mới thêm"
-                android:textColor="#FFFFFF"
+                android:textColor="@color/text_primary"
                 android:textSize="19sp"
                 android:textStyle="bold"/>
 
@@ -171,7 +182,7 @@
                 android:gravity="center"
                 android:padding="25dp"
                 android:text="Chưa có phim nào. Hãy thêm phim mới!"
-                android:textColor="#AAAAAA"
+                android:textColor="@color/text_sub"
                 android:textSize="14sp"
                 android:visibility="gone"/>
 
@@ -189,7 +200,7 @@
                 android:layout_marginTop="20dp"
                 android:layout_marginBottom="20dp"
                 android:text="MOVIEBOX • YOUR MOVIE COLLECTION"
-                android:textColor="#555555"
+                android:textColor="@color/text_sub"
                 android:textSize="10sp"/>
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
@@ -199,7 +210,7 @@
         android:id="@+id/bottomNavContainer"
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:background="#1A1A1A"
+        android:background="@color/bottom_nav_bg"
         android:orientation="horizontal"
         android:gravity="center_vertical">
 
@@ -225,7 +236,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Trang chủ"
-                android:textColor="#FFC107"
+                android:textColor="@color/accent_gold"
                 android:textSize="11sp"
                 android:layout_marginTop="2dp"
                 android:textStyle="bold"/>
@@ -254,7 +265,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Yêu thích"
-                android:textColor="#CCCCCC"
+                android:textColor="@color/text_secondary"
                 android:textSize="11sp"
                 android:layout_marginTop="2dp"/>
         </LinearLayout>
@@ -282,7 +293,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Đã xem"
-                android:textColor="#CCCCCC"
+                android:textColor="@color/text_secondary"
                 android:textSize="11sp"
                 android:layout_marginTop="2dp"/>
         </LinearLayout>
@@ -309,7 +320,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Thống kê"
-                android:textColor="#CCCCCC"
+                android:textColor="@color/text_secondary"
                 android:textSize="11sp"
                 android:layout_marginTop="2dp"/>
         </LinearLayout>
@@ -336,7 +347,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Kho phim"
-                android:textColor="#CCCCCC"
+                android:textColor="@color/text_secondary"
                 android:textSize="11sp"
                 android:layout_marginTop="2dp"/>
         </LinearLayout>

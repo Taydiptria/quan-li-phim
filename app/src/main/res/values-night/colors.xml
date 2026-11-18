@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Common colors -->
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <!-- Dark Theme Colors -->
+    <color name="bg_main">#121212</color>
+    <color name="bg_card">#1E1E1E</color>
+    <color name="bg_card_gold">#1A1813</color>
+    <color name="bg_card_stroke">#2C2C2C</color>
+    <color name="bg_edittext">#1E1E1E</color>
+    <color name="edittext_stroke">#333333</color>
+
+    <color name="text_primary">#FFFFFF</color>
+    <color name="text_secondary">#E2E8F0</color>
+    <color name="text_sub">#94A3B8</color>
+    <color name="text_hint">#64748B</color>
+
+    <color name="accent_gold">#FFC107</color>
+    <color name="accent_gold_bright">#FFC107</color>
+    <color name="bottom_nav_bg">#1A1A1A</color>
+    <color name="bottom_nav_border">#2C2C2C</color>
+    <color name="poster_placeholder">#292929</color>
+</resources>

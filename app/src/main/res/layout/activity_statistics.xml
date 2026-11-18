@@ -3,7 +3,7 @@
     android:id="@+id/mainRoot"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#121212"
+    android:background="@color/bg_main"
     android:fitsSystemWindows="true"
     android:fillViewport="true">
 
@@ -25,7 +25,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="← QUAY LẠI"
-                android:textColor="#FFC107"
+                android:textColor="@color/accent_gold"
                 android:textSize="15sp"
                 android:textStyle="bold"
                 android:padding="8dp"/>
@@ -35,7 +35,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="THỐNG KÊ BỘ SƯU TẬP"
-            android:textColor="#FFC107"
+            android:textColor="@color/accent_gold"
             android:textSize="24sp"
             android:textStyle="bold"
             android:layout_marginTop="12dp"/>
@@ -44,7 +44,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Tổng quan và phân tích dữ liệu kho phim của bạn"
-            android:textColor="#888888"
+            android:textColor="@color/text_sub"
             android:textSize="13sp"
             android:layout_marginTop="4dp"
             android:layout_marginBottom="20dp"/>
@@ -70,7 +70,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="TỔNG SỐ PHIM"
-                    android:textColor="#FFC107"
+                    android:textColor="@color/accent_gold"
                     android:textSize="11sp"
                     android:textStyle="bold"/>
 
@@ -79,7 +79,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="0"
-                    android:textColor="#FFFFFF"
+                    android:textColor="@color/text_primary"
                     android:textSize="28sp"
                     android:textStyle="bold"
                     android:layout_marginTop="6dp"/>
@@ -88,7 +88,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Phim trong kho"
-                    android:textColor="#888888"
+                    android:textColor="@color/text_sub"
                     android:textSize="11sp"
                     android:layout_marginTop="2dp"/>
             </LinearLayout>
@@ -116,7 +116,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="0"
-                    android:textColor="#FFFFFF"
+                    android:textColor="@color/text_primary"
                     android:textSize="28sp"
                     android:textStyle="bold"
                     android:layout_marginTop="6dp"/>
@@ -126,7 +126,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="0% tổng bộ sưu tập"
-                    android:textColor="#888888"
+                    android:textColor="@color/text_sub"
                     android:textSize="11sp"
                     android:layout_marginTop="2dp"/>
             </LinearLayout>
@@ -161,7 +161,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="0"
-                    android:textColor="#FFFFFF"
+                    android:textColor="@color/text_primary"
                     android:textSize="28sp"
                     android:textStyle="bold"
                     android:layout_marginTop="6dp"/>
@@ -171,7 +171,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="0% tổng bộ sưu tập"
-                    android:textColor="#888888"
+                    android:textColor="@color/text_sub"
                     android:textSize="11sp"
                     android:layout_marginTop="2dp"/>
             </LinearLayout>
@@ -190,7 +190,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="ĐIỂM ĐG TRUNG BÌNH"
-                    android:textColor="#FFC107"
+                    android:textColor="@color/accent_gold"
                     android:textSize="11sp"
                     android:textStyle="bold"/>
 
@@ -199,7 +199,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="0.0"
-                    android:textColor="#FFFFFF"
+                    android:textColor="@color/text_primary"
                     android:textSize="28sp"
                     android:textStyle="bold"
                     android:layout_marginTop="6dp"/>
@@ -208,7 +208,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Thang điểm 10"
-                    android:textColor="#888888"
+                    android:textColor="@color/text_sub"
                     android:textSize="11sp"
                     android:layout_marginTop="2dp"/>
             </LinearLayout>
@@ -227,7 +227,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="TRẠNG THÁI XEM PHIM"
-                android:textColor="#FFC107"
+                android:textColor="@color/accent_gold"
                 android:textSize="15sp"
                 android:textStyle="bold"/>
 
@@ -240,7 +240,7 @@
                 android:max="100"
                 android:progress="0"
                 android:progressTint="#4CAF50"
-                android:progressBackgroundTint="#333333"/>
+                android:progressBackgroundTint="@color/poster_placeholder"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -262,7 +262,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Chưa xem: 0 (0%)"
-                    android:textColor="#888888"
+                    android:textColor="@color/text_sub"
                     android:textSize="13sp"/>
             </LinearLayout>
         </LinearLayout>
@@ -280,7 +280,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="BIỂU ĐỒ PHÂN BỐ THEO THỂ LOẠI"
-                android:textColor="#FFC107"
+                android:textColor="@color/accent_gold"
                 android:textSize="15sp"
                 android:textStyle="bold"
                 android:layout_marginBottom="14dp"/>
@@ -296,7 +296,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Chưa có dữ liệu thể loại"
-                android:textColor="#666666"
+                android:textColor="@color/text_sub"
                 android:gravity="center"
                 android:padding="16dp"
                 android:visibility="gone"/>
@@ -315,7 +315,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="BIỂU ĐỒ PHÂN BỐ ĐÁNH GIÁ"
-                android:textColor="#FFC107"
+                android:textColor="@color/accent_gold"
                 android:textSize="15sp"
                 android:textStyle="bold"
                 android:layout_marginBottom="14dp"/>

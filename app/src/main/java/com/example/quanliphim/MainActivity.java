@@ -63,6 +63,15 @@ public class MainActivity extends AppCompatActivity {
         btnAddMovie = findViewById(R.id.btnAddMovie);
         btnStatistics = findViewById(R.id.btnStatistics);
         btnProfile = findViewById(R.id.btnProfile);
+        ImageView btnThemeToggle = findViewById(R.id.btnThemeToggle);
+
+        if (btnThemeToggle != null) {
+            btnThemeToggle.setOnClickListener(v -> {
+                int currentMode = PreferenceManager.getThemeMode(MainActivity.this);
+                int nextMode = (currentMode == PreferenceManager.THEME_DARK) ? PreferenceManager.THEME_LIGHT : PreferenceManager.THEME_DARK;
+                PreferenceManager.setThemeMode(MainActivity.this, nextMode);
+            });
+        }
 
         // Bottom Navigation Tabs
         btnNavHome = findViewById(R.id.btnNavHome);

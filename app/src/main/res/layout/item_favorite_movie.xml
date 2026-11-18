@@ -10,7 +10,7 @@
         android:layout_width="125dp"
         android:layout_height="175dp"
         android:scaleType="centerCrop"
-        android:background="#292929"
+        android:background="@color/poster_placeholder"
         android:src="@android:drawable/ic_menu_gallery"
         android:contentDescription="Poster phim yêu thích"/>
 
@@ -19,7 +19,7 @@
         android:layout_width="125dp"
         android:layout_height="wrap_content"
         android:text="Tên phim"
-        android:textColor="#FFFFFF"
+        android:textColor="@color/text_primary"
         android:textSize="13sp"
         android:textStyle="bold"
         android:maxLines="2"

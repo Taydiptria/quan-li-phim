@@ -4,7 +4,7 @@
     android:id="@+id/mainRoot"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#121212"
+    android:background="@color/bg_main"
     android:fitsSystemWindows="true"
     android:fillViewport="true">
 
@@ -19,7 +19,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="← QUAY LẠI"
-            android:textColor="#FFC107"
+            android:textColor="@color/accent_gold"
             android:textSize="15sp"
             android:textStyle="bold"
             android:padding="8dp"/>
@@ -29,7 +29,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="THÊM PHIM MỚI"
-            android:textColor="#FFC107"
+            android:textColor="@color/accent_gold"
             android:textSize="25sp"
             android:textStyle="bold"
             android:layout_marginTop="16dp"
@@ -40,9 +40,9 @@
             android:layout_width="match_parent"
             android:layout_height="55dp"
             android:hint="Tên phim (*)"
-            android:textColor="#FFFFFF"
-            android:textColorHint="#888888"
-            android:backgroundTint="#FFC107"
+            android:textColor="@color/text_primary"
+            android:textColorHint="@color/text_hint"
+            android:backgroundTint="@color/accent_gold"
             android:inputType="text|textAutoCorrect"
             android:maxLines="1"/>
 
@@ -51,9 +51,9 @@
             android:layout_width="match_parent"
             android:layout_height="55dp"
             android:hint="Thể loại (*)"
-            android:textColor="#FFFFFF"
-            android:textColorHint="#888888"
-            android:backgroundTint="#FFC107"
+            android:textColor="@color/text_primary"
+            android:textColorHint="@color/text_hint"
+            android:backgroundTint="@color/accent_gold"
             android:inputType="text|textAutoCorrect"
             android:maxLines="1"/>
 
@@ -62,9 +62,9 @@
             android:layout_width="match_parent"
             android:layout_height="55dp"
             android:hint="Đạo diễn"
-            android:textColor="#FFFFFF"
-            android:textColorHint="#888888"
-            android:backgroundTint="#FFC107"
+            android:textColor="@color/text_primary"
+            android:textColorHint="@color/text_hint"
+            android:backgroundTint="@color/accent_gold"
             android:inputType="text|textAutoCorrect"
             android:maxLines="1"/>
 
@@ -73,9 +73,9 @@
             android:layout_width="match_parent"
             android:layout_height="55dp"
             android:hint="Năm phát hành (*)"
-            android:textColor="#FFFFFF"
-            android:textColorHint="#888888"
-            android:backgroundTint="#FFC107"
+            android:textColor="@color/text_primary"
+            android:textColorHint="@color/text_hint"
+            android:backgroundTint="@color/accent_gold"
             android:inputType="number"
             android:maxLines="1"/>
 
@@ -84,9 +84,9 @@
             android:layout_width="match_parent"
             android:layout_height="55dp"
             android:hint="Điểm đánh giá (0 - 10)"
-            android:textColor="#FFFFFF"
-            android:textColorHint="#888888"
-            android:backgroundTint="#FFC107"
+            android:textColor="@color/text_primary"
+            android:textColorHint="@color/text_hint"
+            android:backgroundTint="@color/accent_gold"
             android:inputType="numberDecimal"
             android:maxLines="1"/>
 
@@ -95,7 +95,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="ẢNH POSTER PHIM:"
-            android:textColor="#AAAAAA"
+            android:textColor="@color/text_sub"
             android:textSize="13sp"
             android:layout_marginTop="16dp"/>
 
@@ -115,7 +115,7 @@
                 android:layout_height="200dp"
                 android:scaleType="fitCenter"
                 android:src="@android:drawable/ic_menu_gallery"
-                android:background="#121212"
+                android:background="@color/poster_placeholder"
                 android:contentDescription="Poster xem trước"/>
 
             <TextView
@@ -123,7 +123,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Chưa chọn ảnh từ thiết bị"
-                android:textColor="#888888"
+                android:textColor="@color/text_sub"
                 android:textSize="12sp"
                 android:layout_marginTop="8dp"/>
 
@@ -141,7 +141,7 @@
                     android:text="🖼 CHỌN ẢNH TỪ THIẾT BỊ"
                     android:textColor="#121212"
                     android:textStyle="bold"
-                    android:backgroundTint="#FFC107"/>
+                    android:backgroundTint="@color/accent_gold"/>
 
                 <Button
                     android:id="@+id/btnRemovePoster"
@@ -160,9 +160,9 @@
             android:layout_width="match_parent"
             android:layout_height="100dp"
             android:hint="Mô tả nội dung phim"
-            android:textColor="#FFFFFF"
-            android:textColorHint="#888888"
-            android:backgroundTint="#FFC107"
+            android:textColor="@color/text_primary"
+            android:textColorHint="@color/text_hint"
+            android:backgroundTint="@color/accent_gold"
             android:gravity="top"
             android:padding="12dp"
             android:inputType="textMultiLine|textAutoCorrect"/>
@@ -172,9 +172,9 @@
             android:layout_width="match_parent"
             android:layout_height="100dp"
             android:hint="Nhận xét cá nhân về bộ phim"
-            android:textColor="#FFFFFF"
-            android:textColorHint="#888888"
-            android:backgroundTint="#FFC107"
+            android:textColor="@color/text_primary"
+            android:textColorHint="@color/text_hint"
+            android:backgroundTint="@color/accent_gold"
             android:gravity="top"
             android:padding="12dp"
             android:inputType="textMultiLine|textAutoCorrect"
@@ -187,7 +187,7 @@
             android:text="LƯU PHIM"
             android:textColor="#121212"
             android:textStyle="bold"
-            android:backgroundTint="#FFC107"
+            android:backgroundTint="@color/accent_gold"
             android:layout_marginTop="25dp"/>
 
     </LinearLayout>

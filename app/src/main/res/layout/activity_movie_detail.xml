@@ -3,7 +3,7 @@
     android:id="@+id/mainRoot"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#121212"
+    android:background="@color/bg_main"
     android:fitsSystemWindows="true"
     android:fillViewport="true">
 
@@ -18,7 +18,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="←  QUAY LẠI"
-            android:textColor="#FFC107"
+            android:textColor="@color/accent_gold"
             android:textSize="15sp"
             android:textStyle="bold"
             android:padding="8dp"/>
@@ -30,7 +30,7 @@
             android:layout_marginTop="15dp"
             android:scaleType="centerInside"
             android:src="@android:drawable/ic_menu_gallery"
-            android:background="#1E1E1E"
+            android:background="@color/poster_placeholder"
             android:contentDescription="Poster phim"/>
 
         <TextView
@@ -38,7 +38,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Tên phim"
-            android:textColor="#FFC107"
+            android:textColor="@color/text_primary"
             android:textSize="25sp"
             android:textStyle="bold"
             android:layout_marginTop="20dp"/>
@@ -55,7 +55,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Thể loại"
-                android:textColor="#E53935"
+                android:textColor="@color/accent_gold"
                 android:textSize="15sp"
                 android:textStyle="bold"/>
 
@@ -91,7 +91,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Năm phát hành"
-            android:textColor="#AAAAAA"
+            android:textColor="@color/text_sub"
             android:textSize="14sp"
             android:layout_marginTop="8dp"/>
 
@@ -100,7 +100,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Đạo diễn"
-            android:textColor="#FFFFFF"
+            android:textColor="@color/text_primary"
             android:textSize="14sp"
             android:layout_marginTop="8dp"/>
 
@@ -124,7 +124,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="ĐÁNH GIÁ &amp; NHẬN XÉT"
-                    android:textColor="#FFC107"
+                    android:textColor="@color/accent_gold"
                     android:textStyle="bold"
                     android:textSize="15sp"/>
 
@@ -133,7 +133,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="0.0 / 10"
-                    android:textColor="#FFFFFF"
+                    android:textColor="@color/text_primary"
                     android:textSize="18sp"
                     android:textStyle="bold"/>
             </LinearLayout>
@@ -143,7 +143,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Nhận xét của bạn:"
-                android:textColor="#AAAAAA"
+                android:textColor="@color/text_sub"
                 android:textSize="13sp"
                 android:layout_marginTop="12dp"/>
 
@@ -152,7 +152,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Chưa có nhận xét nào cho bộ phim này. Nhấn nút bên dưới để chấm điểm và viết nhận xét."
-                android:textColor="#E0E0E0"
+                android:textColor="@color/text_secondary"
                 android:textSize="14sp"
                 android:lineSpacingExtra="4dp"
                 android:layout_marginTop="4dp"/>
@@ -165,7 +165,7 @@
                 android:text="★ ĐÁNH GIÁ &amp; VIẾT NHẬN XÉT"
                 android:textColor="#121212"
                 android:textStyle="bold"
-                android:backgroundTint="#FFC107"/>
+                android:backgroundTint="@color/accent_gold"/>
         </LinearLayout>
 
         <!-- DESCRIPTION -->
@@ -173,7 +173,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="NỘI DUNG PHIM"
-            android:textColor="#FFC107"
+            android:textColor="@color/accent_gold"
             android:textStyle="bold"
             android:textSize="15sp"
             android:layout_marginTop="20dp"/>
@@ -183,7 +183,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Mô tả phim..."
-            android:textColor="#CCCCCC"
+            android:textColor="@color/text_secondary"
             android:textSize="14sp"
             android:lineSpacingExtra="5dp"
             android:layout_marginTop="8dp"
