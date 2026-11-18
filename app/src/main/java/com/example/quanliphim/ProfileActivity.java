@@ -3,11 +3,13 @@ package com.example.quanliphim;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -21,13 +23,20 @@ public class ProfileActivity extends AppCompatActivity {
 
     TextView btnBack, tvProfileDisplayName, tvProfileDisplayEmail, btnChangeAvatar;
     ImageView imgProfileAvatar;
-    EditText edtProfileName, edtProfileEmail, edtProfilePhone, edtProfileFavGenre, edtProfileBio;
+    EditText edtProfileName, edtProfileEmail, edtProfilePhone, edtProfileBio;
+    Spinner spinnerProfileFavGenre;
     Button btnSaveProfile, btnNavStats, btnNavFavorites, btnNavWatched;
 
     RadioGroup rgThemeGroup;
     RadioButton rbThemeDark, rbThemeLight, rbThemeSystem;
 
     private boolean isInitializingTheme = true;
+
+    private final String[] genreOptions = {
+            "Hành động", "Tình cảm", "Hài hước", "Kinh dị",
+            "Viễn tưởng", "Hoạt hình", "Tâm lý", "Phiêu lưu",
+            "Võ thuật", "Tài liệu", "Gia đình", "Khác"
+    };
 
     private final ActivityResultLauncher<String> pickAvatarLauncher =
             registerForActivityResult(new ActivityResultContracts.GetContent(), uri -> {
@@ -61,7 +70,7 @@ public class ProfileActivity extends AppCompatActivity {
         edtProfileName = findViewById(R.id.edtProfileName);
         edtProfileEmail = findViewById(R.id.edtProfileEmail);
         edtProfilePhone = findViewById(R.id.edtProfilePhone);
-        edtProfileFavGenre = findViewById(R.id.edtProfileFavGenre);
+        spinnerProfileFavGenre = findViewById(R.id.spinnerProfileFavGenre);
         edtProfileBio = findViewById(R.id.edtProfileBio);
         btnSaveProfile = findViewById(R.id.btnSaveProfile);
 
@@ -73,6 +82,8 @@ public class ProfileActivity extends AppCompatActivity {
         btnNavStats = findViewById(R.id.btnNavStats);
         btnNavFavorites = findViewById(R.id.btnNavFavorites);
         btnNavWatched = findViewById(R.id.btnNavWatched);
+
+        setupGenreSpinner();
 
         btnBack.setOnClickListener(v -> finish());
 
@@ -116,6 +127,16 @@ public class ProfileActivity extends AppCompatActivity {
         });
     }
 
+    private void setupGenreSpinner() {
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(
+                this,
+                android.R.layout.simple_spinner_item,
+                genreOptions
+        );
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinnerProfileFavGenre.setAdapter(adapter);
+    }
+
     private void loadUserProfile() {
         String name = PreferenceManager.getUserName(this);
         String email = PreferenceManager.getUserEmail(this);
@@ -130,8 +151,16 @@ public class ProfileActivity extends AppCompatActivity {
         edtProfileName.setText(name);
         edtProfileEmail.setText(email);
         edtProfilePhone.setText(phone);
-        edtProfileFavGenre.setText(favGenre);
         edtProfileBio.setText(bio);
+
+        if (favGenre != null) {
+            for (int i = 0; i < genreOptions.length; i++) {
+                if (genreOptions[i].equalsIgnoreCase(favGenre.trim())) {
+                    spinnerProfileFavGenre.setSelection(i);
+                    break;
+                }
+            }
+        }
 
         displayAvatar(avatar);
     }
@@ -152,7 +181,7 @@ public class ProfileActivity extends AppCompatActivity {
         String name = edtProfileName.getText().toString().trim();
         String email = edtProfileEmail.getText().toString().trim();
         String phone = edtProfilePhone.getText().toString().trim();
-        String favGenre = edtProfileFavGenre.getText().toString().trim();
+        String favGenre = spinnerProfileFavGenre.getSelectedItem() != null ? spinnerProfileFavGenre.getSelectedItem().toString() : "Hành động";
         String bio = edtProfileBio.getText().toString().trim();
 
         if (name.isEmpty()) {

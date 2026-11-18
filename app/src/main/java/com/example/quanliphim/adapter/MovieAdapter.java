@@ -39,7 +39,7 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieViewHol
     }
 
     public void setMovieList(List<MovieEntity> movies) {
-        this.movieList = movies;
+        this.movieList = movies != null ? movies : new ArrayList<>();
         notifyDataSetChanged();
     }
 
@@ -60,15 +60,18 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieViewHol
 
         MovieEntity movie = movieList.get(position);
 
-        holder.tvTitle.setText(movie.title);
-        holder.tvGenre.setText(movie.genre);
+        holder.tvTitle.setText(movie.title != null ? movie.title : "");
+        holder.tvGenre.setText(movie.genre != null ? movie.genre : "");
         holder.tvYear.setText(String.valueOf(movie.year));
 
-        if (movie.poster != null && !movie.poster.isEmpty()) {
-            holder.imgPoster.setImageURI(Uri.parse(movie.poster));
+        if (movie.poster != null && !movie.poster.trim().isEmpty()) {
+            try {
+                holder.imgPoster.setImageURI(Uri.parse(movie.poster));
+            } catch (Exception e) {
+                holder.imgPoster.setImageResource(android.R.drawable.ic_menu_gallery);
+            }
         } else {
-            holder.imgPoster.setImageResource(
-                    android.R.drawable.ic_menu_gallery);
+            holder.imgPoster.setImageResource(android.R.drawable.ic_menu_gallery);
         }
 
         // Hiển thị trạng thái yêu thích

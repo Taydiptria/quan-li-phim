@@ -4,9 +4,11 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -23,7 +25,8 @@ import java.util.concurrent.Executors;
 
 public class AddMovieActivity extends AppCompatActivity {
 
-    EditText edtTitle, edtGenre, edtDirector, edtYear, edtRating, edtDescription, edtReview;
+    EditText edtTitle, edtDirector, edtYear, edtRating, edtDescription, edtReview;
+    Spinner spinnerGenre;
     ImageView imgPosterPreview;
     TextView tvPosterStatus, tvAddMovieHeader, btnBack;
     Button btnSelectPoster, btnRemovePoster, btnSaveMovie;
@@ -33,6 +36,12 @@ public class AddMovieActivity extends AppCompatActivity {
     MovieEntity currentMovie;
 
     private String selectedPosterUri = "";
+
+    private final String[] genreOptions = {
+            "Hành động", "Tình cảm", "Hài hước", "Kinh dị",
+            "Viễn tưởng", "Hoạt hình", "Tâm lý", "Phiêu lưu",
+            "Võ thuật", "Tài liệu", "Gia đình", "Khác"
+    };
 
     private final ActivityResultLauncher<String> pickImageLauncher =
             registerForActivityResult(new ActivityResultContracts.GetContent(), uri -> {
@@ -58,7 +67,7 @@ public class AddMovieActivity extends AppCompatActivity {
 
         tvAddMovieHeader = findViewById(R.id.tvAddMovieHeader);
         edtTitle = findViewById(R.id.edtTitle);
-        edtGenre = findViewById(R.id.edtGenre);
+        spinnerGenre = findViewById(R.id.spinnerGenre);
         edtDirector = findViewById(R.id.edtDirector);
         edtYear = findViewById(R.id.edtYear);
         edtRating = findViewById(R.id.edtRating);
@@ -72,6 +81,8 @@ public class AddMovieActivity extends AppCompatActivity {
 
         btnSaveMovie = findViewById(R.id.btnSaveMovie);
         btnBack = findViewById(R.id.btnBack);
+
+        setupGenreSpinner();
 
         database = MovieDatabase.getDatabase(this);
 
@@ -92,7 +103,9 @@ public class AddMovieActivity extends AppCompatActivity {
                 if (movie != null) {
                     currentMovie = movie;
                     edtTitle.setText(movie.title);
-                    edtGenre.setText(movie.genre);
+
+                    selectGenreInSpinner(movie.genre);
+
                     edtDirector.setText(movie.director);
                     edtYear.setText(String.valueOf(movie.year));
                     edtRating.setText(String.valueOf(movie.rating));
@@ -108,6 +121,26 @@ public class AddMovieActivity extends AppCompatActivity {
         }
 
         btnSaveMovie.setOnClickListener(v -> saveMovie());
+    }
+
+    private void setupGenreSpinner() {
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(
+                this,
+                android.R.layout.simple_spinner_item,
+                genreOptions
+        );
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinnerGenre.setAdapter(adapter);
+    }
+
+    private void selectGenreInSpinner(String genre) {
+        if (genre == null) return;
+        for (int i = 0; i < genreOptions.length; i++) {
+            if (genreOptions[i].equalsIgnoreCase(genre.trim())) {
+                spinnerGenre.setSelection(i);
+                return;
+            }
+        }
     }
 
     private void displayPoster(String uriStr) {
@@ -129,15 +162,15 @@ public class AddMovieActivity extends AppCompatActivity {
 
     private void saveMovie() {
         String title = edtTitle.getText().toString().trim();
-        String genre = edtGenre.getText().toString().trim();
+        String genre = spinnerGenre.getSelectedItem() != null ? spinnerGenre.getSelectedItem().toString() : "Khác";
         String director = edtDirector.getText().toString().trim();
         String yearStr = edtYear.getText().toString().trim();
         String ratingStr = edtRating.getText().toString().trim();
         String description = edtDescription.getText().toString().trim();
         String review = edtReview.getText().toString().trim();
 
-        if (title.isEmpty() || genre.isEmpty() || yearStr.isEmpty()) {
-            Toast.makeText(this, "Vui lòng nhập Tên phim, Thể loại và Năm phát hành", Toast.LENGTH_SHORT).show();
+        if (title.isEmpty() || yearStr.isEmpty()) {
+            Toast.makeText(this, "Vui lòng nhập Tên phim và Năm phát hành", Toast.LENGTH_SHORT).show();
             return;
         }
 
