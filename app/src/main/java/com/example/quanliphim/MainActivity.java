@@ -30,9 +30,8 @@ public class MainActivity extends AppCompatActivity {
     TextView tvEmpty, tvFavoriteEmpty;
     ImageView btnAddMovie, btnProfile, btnThemeToggle;
     View btnOpenSearch;
-    View btnNavHome, btnNavFavorites, btnNavWatched, btnNavStats, btnNavSearch;
 
-    TextView btnQuickStats, btnQuickFavorites, btnQuickWatched;
+    View btnNavHome, btnNavFavorites, btnNavWatched, btnNavStats, btnNavLibrary;
 
     MovieAdapter movieAdapter;
     FavouriteMovieAdapter favoriteAdapter;
@@ -72,7 +71,7 @@ public class MainActivity extends AppCompatActivity {
         btnNavFavorites = findViewById(R.id.btnNavFavorites);
         btnNavWatched = findViewById(R.id.btnNavWatched);
         btnNavStats = findViewById(R.id.btnNavStats);
-        btnNavSearch = findViewById(R.id.btnNavSearch);
+        btnNavLibrary = findViewById(R.id.btnNavLibrary);
 
         btnAddMovie.setOnClickListener(v -> {
             Intent intent = new Intent(MainActivity.this, AddMovieActivity.class);
@@ -129,9 +128,9 @@ public class MainActivity extends AppCompatActivity {
             });
         }
 
-        if (btnNavSearch != null) {
-            btnNavSearch.setOnClickListener(v -> {
-                Intent intent = new Intent(MainActivity.this, SearchActivity.class);
+        if (btnNavLibrary != null) {
+            btnNavLibrary.setOnClickListener(v -> {
+                Intent intent = new Intent(MainActivity.this, MovieLibraryActivity.class);
                 startActivity(intent);
             });
         }
