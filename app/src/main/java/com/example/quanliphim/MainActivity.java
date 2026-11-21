@@ -156,7 +156,7 @@ public class MainActivity extends AppCompatActivity {
         // Kết nối Database
         database = MovieDatabase.getDatabase(this);
 
-        // Lấy phim mới thêm
+        // Lấy phim mới thêm (hiển thị tất cả phim mới thêm như bình thường)
         database.movieDao().getAllMovies().observe(this, movies -> {
             if (movies == null || movies.isEmpty()) {
                 tvEmpty.setVisibility(View.VISIBLE);

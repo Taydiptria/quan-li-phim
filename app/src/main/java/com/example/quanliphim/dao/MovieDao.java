@@ -19,6 +19,10 @@ public interface MovieDao {
     @Query("SELECT * FROM movies ORDER BY id DESC")
     LiveData<List<MovieEntity>> getAllMovies();
 
+    // Đếm tổng số phim (đồng bộ)
+    @Query("SELECT COUNT(*) FROM movies")
+    int getMovieCountSync();
+
     // Lấy phim mới thêm
     @Query("SELECT * FROM movies ORDER BY id DESC LIMIT 10")
     LiveData<List<MovieEntity>> getLatestMovies();
@@ -30,6 +34,14 @@ public interface MovieDao {
     // Lấy danh sách phim yêu thích
     @Query("SELECT * FROM movies WHERE favorite = 1")
     LiveData<List<MovieEntity>> getFavoriteMovies();
+
+    // Lấy danh sách phim không nằm trong danh sách yêu thích
+    @Query("SELECT * FROM movies WHERE favorite = 0 ORDER BY id DESC")
+    LiveData<List<MovieEntity>> getNonFavoriteMovies();
+
+    // Xóa các bản ghi trùng tên phim trong CSDL
+    @Query("DELETE FROM movies WHERE id NOT IN (SELECT MAX(id) FROM movies GROUP BY title)")
+    void deleteDuplicateMoviesSync();
 
     // Lấy danh sách phim đã xem
     @Query("SELECT * FROM movies WHERE watched = 1")
