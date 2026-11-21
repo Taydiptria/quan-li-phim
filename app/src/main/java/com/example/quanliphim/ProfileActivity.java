@@ -169,7 +169,7 @@ public class ProfileActivity extends AppCompatActivity {
         if (avatarUriStr != null && !avatarUriStr.trim().isEmpty()) {
             try {
                 imgProfileAvatar.setImageURI(Uri.parse(avatarUriStr));
-                imgProfileAvatar.setImageTintList(null); // Clear yellow tint when custom photo is set
+                imgProfileAvatar.setImageTintList(null);
                 imgProfileAvatar.setPadding(0, 0, 0, 0);
                 return;
             } catch (Exception ignored) {}

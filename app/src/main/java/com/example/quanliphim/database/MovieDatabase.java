@@ -48,7 +48,6 @@ public abstract class MovieDatabase extends RoomDatabase {
                     })
                     .build();
 
-                    // Auto check on DB startup if DB is empty or has duplicates
                     Executors.newSingleThreadExecutor().execute(() -> {
                         try {
                             MovieDao dao = INSTANCE.movieDao();
@@ -77,7 +76,6 @@ public abstract class MovieDatabase extends RoomDatabase {
         String poster3 = "android.resource://" + pkg + "/drawable/img_2";
         String poster4 = "android.resource://" + pkg + "/drawable/img_3";
 
-        // 1. Avatar 2
         MovieEntity m1 = new MovieEntity();
         m1.title = "Avatar: Dòng Chảy Của Nước";
         m1.genre = "Viễn tưởng, Hành động";
@@ -90,7 +88,6 @@ public abstract class MovieDatabase extends RoomDatabase {
         m1.favorite = true;
         m1.watched = true;
 
-        // 2. Interstellar
         MovieEntity m2 = new MovieEntity();
         m2.title = "Interstellar (Hố Đen Tử Thần)";
         m2.genre = "Viễn tưởng, Phiêu lưu";
@@ -103,7 +100,6 @@ public abstract class MovieDatabase extends RoomDatabase {
         m2.favorite = true;
         m2.watched = true;
 
-        // 3. Avengers Endgame
         MovieEntity m3 = new MovieEntity();
         m3.title = "Avengers: Hồi Kết";
         m3.genre = "Hành động, Viễn tưởng";
@@ -116,7 +112,6 @@ public abstract class MovieDatabase extends RoomDatabase {
         m3.favorite = false;
         m3.watched = true;
 
-        // 4. Spider-Man No Way Home
         MovieEntity m4 = new MovieEntity();
         m4.title = "Spider-Man: Không Còn Nhà";
         m4.genre = "Hành động, Viễn tưởng";

@@ -12,7 +12,6 @@
         android:orientation="vertical"
         android:padding="20dp">
 
-        <!-- HEADER -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -39,7 +38,6 @@
             android:textStyle="bold"
             android:layout_marginTop="12dp"/>
 
-        <!-- AVATAR & USER SUMMARY CARD -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -92,7 +90,6 @@
                 android:layout_marginTop="2dp"/>
         </LinearLayout>
 
-        <!-- PROFILE EDIT FORM -->
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -222,7 +219,6 @@
                 android:backgroundTint="@color/accent_gold"/>
         </LinearLayout>
 
-        <!-- THEME SETTINGS -->
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -275,7 +271,6 @@
             </RadioGroup>
         </LinearLayout>
 
-        <!-- QUICK NAVIGATION SHORTCUTS -->
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

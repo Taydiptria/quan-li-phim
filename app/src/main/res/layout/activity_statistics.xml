@@ -11,7 +11,6 @@
         android:orientation="vertical"
         android:padding="20dp">
 
-        <!-- HEADER -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -47,14 +46,12 @@
             android:layout_marginTop="4dp"
             android:layout_marginBottom="20dp"/>
 
-        <!-- OVERVIEW CARDS (2x2 GRID) -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:layout_marginBottom="12dp">
 
-            <!-- CARD 1: TOTAL MOVIES -->
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -91,7 +88,6 @@
                     android:layout_marginTop="2dp"/>
             </LinearLayout>
 
-            <!-- CARD 2: WATCHED MOVIES -->
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -136,7 +132,6 @@
             android:orientation="horizontal"
             android:layout_marginBottom="24dp">
 
-            <!-- CARD 3: FAVORITE MOVIES -->
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -174,7 +169,6 @@
                     android:layout_marginTop="2dp"/>
             </LinearLayout>
 
-            <!-- CARD 4: AVERAGE RATING -->
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -212,7 +206,6 @@
             </LinearLayout>
         </LinearLayout>
 
-        <!-- SECTION 1: WATCHED VS UNWATCHED RATIO CHART -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -265,7 +258,6 @@
             </LinearLayout>
         </LinearLayout>
 
-        <!-- SECTION 2: GENRE BREAKDOWN CHART -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

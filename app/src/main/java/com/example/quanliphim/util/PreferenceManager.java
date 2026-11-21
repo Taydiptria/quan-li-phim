@@ -9,7 +9,6 @@ public class PreferenceManager {
 
     private static final String PREF_NAME = "moviebox_prefs";
 
-    // Keys
     private static final String KEY_USER_NAME = "user_name";
     private static final String KEY_USER_EMAIL = "user_email";
     private static final String KEY_USER_PHONE = "user_phone";
@@ -18,7 +17,6 @@ public class PreferenceManager {
     private static final String KEY_FAV_GENRE = "favorite_genre";
     private static final String KEY_THEME_MODE = "theme_mode";
 
-    // Theme constants
     public static final int THEME_SYSTEM = 0;
     public static final int THEME_LIGHT = 1;
     public static final int THEME_DARK = 2;
@@ -27,7 +25,6 @@ public class PreferenceManager {
         return context.getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE);
     }
 
-    // User Profile
     public static String getUserName(Context context) {
         return getPrefs(context).getString(KEY_USER_NAME, "Nguyễn Văn A");
     }
@@ -76,7 +73,6 @@ public class PreferenceManager {
         getPrefs(context).edit().putString(KEY_FAV_GENRE, genre).apply();
     }
 
-    // Theme Settings
     public static int getThemeMode(Context context) {
         return getPrefs(context).getInt(KEY_THEME_MODE, THEME_DARK);
     }

@@ -102,7 +102,6 @@
             android:textSize="14sp"
             android:layout_marginTop="8dp"/>
 
-        <!-- RATING & REVIEW SECTION (UC11) -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -166,7 +165,6 @@
                 android:backgroundTint="@color/accent_gold"/>
         </LinearLayout>
 
-        <!-- DESCRIPTION -->
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -187,7 +185,6 @@
             android:layout_marginTop="8dp"
             android:layout_marginBottom="16dp"/>
 
-        <!-- ACTION BUTTONS -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

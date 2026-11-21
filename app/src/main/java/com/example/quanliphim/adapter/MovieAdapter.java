@@ -74,7 +74,6 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieViewHol
             holder.imgPoster.setImageResource(android.R.drawable.ic_menu_gallery);
         }
 
-        // Hiển thị trạng thái yêu thích
         if (movie.favorite) {
             holder.btnFavorite.setText("♥");
             holder.btnFavorite.setTextColor(
@@ -85,14 +84,12 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieViewHol
                     android.graphics.Color.LTGRAY);
         }
 
-        // Nhấn poster hoặc thông tin để mở chi tiết
         holder.itemView.setOnClickListener(v -> {
             if (listener != null) {
                 listener.onMovieClick(movie);
             }
         });
 
-        // Nhấn trái tim để thêm hoặc bỏ yêu thích
         holder.btnFavorite.setOnClickListener(v -> {
             if (favoriteListener != null) {
                 favoriteListener.onFavoriteClick(movie);

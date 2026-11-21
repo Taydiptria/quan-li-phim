@@ -21,7 +21,6 @@
             android:orientation="vertical"
             android:padding="20dp">
 
-            <!-- HEADER -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -91,7 +90,6 @@
                 </LinearLayout>
             </LinearLayout>
 
-            <!-- BANNER -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="160dp"
@@ -128,7 +126,6 @@
 
             </LinearLayout>
 
-            <!-- QUICK SEARCH BAR TRIGGER -->
             <LinearLayout
                 android:id="@+id/btnOpenSearch"
                 android:layout_width="match_parent"
@@ -157,7 +154,6 @@
                     android:textSize="14sp"/>
             </LinearLayout>
 
-            <!-- PHIM YEU THICH -->
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -183,7 +179,6 @@
                 android:layout_marginTop="12dp"
                 android:nestedScrollingEnabled="false"/>
 
-            <!-- PHIM MOI THEM -->
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -223,7 +218,6 @@
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 
-    <!-- FIXED BOTTOM NAVIGATION BAR -->
     <LinearLayout
         android:id="@+id/bottomNavContainer"
         android:layout_width="match_parent"
@@ -233,7 +227,6 @@
         android:gravity="center_vertical"
         android:elevation="8dp">
 
-        <!-- TAB 1: TRANG CHỦ -->
         <LinearLayout
             android:id="@+id/btnNavHome"
             android:layout_width="0dp"
@@ -261,7 +254,6 @@
                 android:textStyle="bold"/>
         </LinearLayout>
 
-        <!-- TAB 2: YÊU THÍCH -->
         <LinearLayout
             android:id="@+id/btnNavFavorites"
             android:layout_width="0dp"
@@ -289,7 +281,6 @@
                 android:layout_marginTop="2dp"/>
         </LinearLayout>
 
-        <!-- TAB 3: ĐÃ XEM -->
         <LinearLayout
             android:id="@+id/btnNavWatched"
             android:layout_width="0dp"
@@ -317,7 +308,6 @@
                 android:layout_marginTop="2dp"/>
         </LinearLayout>
 
-        <!-- TAB 4: THỐNG KÊ -->
         <LinearLayout
             android:id="@+id/btnNavStats"
             android:layout_width="0dp"
@@ -344,7 +334,6 @@
                 android:layout_marginTop="2dp"/>
         </LinearLayout>
 
-        <!-- TAB 5: KHO PHIM -->
         <LinearLayout
             android:id="@+id/btnNavLibrary"
             android:layout_width="0dp"

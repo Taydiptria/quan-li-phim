@@ -9,7 +9,6 @@
     android:orientation="vertical"
     android:padding="20dp">
 
-    <!-- HEADER -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -37,7 +36,6 @@
         android:layout_marginTop="8dp"
         android:layout_marginBottom="16dp"/>
 
-    <!-- SEARCH INPUT BOX -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -82,7 +80,6 @@
             android:contentDescription="Xóa tìm kiếm"/>
     </LinearLayout>
 
-    <!-- GENRE FILTER ROW -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -114,7 +111,6 @@
         </FrameLayout>
     </LinearLayout>
 
-    <!-- RESULT SUMMARY -->
     <TextView
         android:id="@+id/tvResultCount"
         android:layout_width="match_parent"
@@ -124,7 +120,6 @@
         android:textSize="13sp"
         android:layout_marginBottom="10dp"/>
 
-    <!-- EMPTY STATE -->
     <TextView
         android:id="@+id/tvEmptySearch"
         android:layout_width="match_parent"
@@ -136,7 +131,6 @@
         android:textSize="14sp"
         android:visibility="gone"/>
 
-    <!-- MOVIE LIST -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvSearchResults"
         android:layout_width="match_parent"

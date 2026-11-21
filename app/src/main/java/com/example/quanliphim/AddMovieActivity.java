@@ -95,7 +95,6 @@ public class AddMovieActivity extends AppCompatActivity {
             displayPoster("");
         });
 
-        // Check if editing an existing movie
         movieId = getIntent().getIntExtra("movie_id", -1);
         if (movieId != -1) {
             tvAddMovieHeader.setText("CHỈNH SỬA PHIM");
@@ -148,7 +147,7 @@ public class AddMovieActivity extends AppCompatActivity {
             try {
                 imgPosterPreview.setImageURI(Uri.parse(uriStr));
                 tvPosterStatus.setText("Đã chọn ảnh từ thiết bị");
-                tvPosterStatus.setTextColor(0xFF4CAF50); // Green
+                tvPosterStatus.setTextColor(0xFF4CAF50);
                 btnRemovePoster.setVisibility(View.VISIBLE);
                 return;
             } catch (Exception ignored) {}
@@ -202,7 +201,6 @@ public class AddMovieActivity extends AppCompatActivity {
 
         executor.execute(() -> {
             if (movieId == -1) {
-                // Insert new movie
                 MovieEntity movie = new MovieEntity();
                 movie.title = title;
                 movie.genre = genre;
@@ -221,7 +219,6 @@ public class AddMovieActivity extends AppCompatActivity {
                     finish();
                 });
             } else {
-                // Update existing movie
                 if (currentMovie != null) {
                     currentMovie.title = title;
                     currentMovie.genre = genre;

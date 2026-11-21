@@ -91,11 +91,9 @@ public class StatisticsActivity extends AppCompatActivity {
                 ratedMoviesCount++;
             }
 
-            // Genre counting
             String g = (m.genre == null || m.genre.trim().isEmpty()) ? "Khác" : m.genre.trim();
             genreMap.put(g, genreMap.getOrDefault(g, 0) + 1);
 
-            // Rating bucket
             if (m.rating >= 8.0f) {
                 score8To10++;
             } else if (m.rating >= 6.0f) {
@@ -107,7 +105,6 @@ public class StatisticsActivity extends AppCompatActivity {
             }
         }
 
-        // 1. Overview cards
         tvStatTotalMovies.setText(String.valueOf(totalMovies));
         tvStatWatchedMovies.setText(String.valueOf(watchedCount));
 
@@ -121,14 +118,12 @@ public class StatisticsActivity extends AppCompatActivity {
         float avgRating = ratedMoviesCount > 0 ? (totalRatingSum / ratedMoviesCount) : 0.0f;
         tvStatAvgRating.setText(String.format(Locale.getDefault(), "%.1f", avgRating));
 
-        // 2. Watched vs Unwatched chart
         pbWatchedRatio.setProgress(watchedPct);
         int unwatchedCount = totalMovies - watchedCount;
         int unwatchedPct = 100 - watchedPct;
         tvWatchedRatioLabel.setText(String.format(Locale.getDefault(), "Đã xem: %d (%d%%)", watchedCount, watchedPct));
         tvUnwatchedRatioLabel.setText(String.format(Locale.getDefault(), "Chưa xem: %d (%d%%)", unwatchedCount, unwatchedPct));
 
-        // 3. Genre breakdown chart
         containerGenreBars.removeAllViews();
         if (genreMap.isEmpty()) {
             tvNoGenreData.setVisibility(View.VISIBLE);
@@ -136,7 +131,6 @@ public class StatisticsActivity extends AppCompatActivity {
             tvNoGenreData.setVisibility(View.GONE);
 
             List<Map.Entry<String, Integer>> genreList = new ArrayList<>(genreMap.entrySet());
-            // Sort by count descending
             Collections.sort(genreList, (e1, e2) -> e2.getValue().compareTo(e1.getValue()));
 
             for (Map.Entry<String, Integer> entry : genreList) {
@@ -148,7 +142,6 @@ public class StatisticsActivity extends AppCompatActivity {
             }
         }
 
-        // 4. Rating breakdown chart
         containerRatingBars.removeAllViews();
         addStatBarRow(containerRatingBars, "8.0 - 10.0 (Xuất sắc)", score8To10, (int) Math.round((score8To10 * 100.0) / totalMovies), "#4CAF50");
         addStatBarRow(containerRatingBars, "6.0 - 7.9 (Khá / Tốt)", score6To79, (int) Math.round((score6To79 * 100.0) / totalMovies), "#2196F3");

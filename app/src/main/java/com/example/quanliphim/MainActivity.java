@@ -44,7 +44,6 @@ public class MainActivity extends AppCompatActivity {
         PreferenceManager.applySavedTheme(this);
         setContentView(R.layout.activity_main);
 
-        // Window Insets Padding (Status bar / Bottom gesture bar protection)
         View mainRoot = findViewById(R.id.mainRoot);
         if (mainRoot != null) {
             ViewCompat.setOnApplyWindowInsetsListener(mainRoot, (v, insets) -> {
@@ -66,7 +65,6 @@ public class MainActivity extends AppCompatActivity {
         btnThemeToggle = findViewById(R.id.btnThemeToggle);
         btnOpenSearch = findViewById(R.id.btnOpenSearch);
 
-        // Bottom Navigation Bar Tabs
         btnNavHome = findViewById(R.id.btnNavHome);
         btnNavFavorites = findViewById(R.id.btnNavFavorites);
         btnNavWatched = findViewById(R.id.btnNavWatched);
@@ -98,7 +96,6 @@ public class MainActivity extends AppCompatActivity {
             });
         }
 
-        // Setup Bottom Nav Tab Listeners
         if (btnNavHome != null) {
             btnNavHome.setOnClickListener(v -> {
                 if (mainScrollView != null) {
@@ -135,13 +132,10 @@ public class MainActivity extends AppCompatActivity {
             });
         }
 
-        // Danh sách phim mới thêm: hiển thị dọc
         rvMovies.setLayoutManager(new LinearLayoutManager(this));
 
-        // Danh sách phim yêu thích: vuốt ngang
         rvFavoriteMovies.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
 
-        // Adapter phim mới thêm
         movieAdapter = new MovieAdapter(this::openMovieDetail);
         rvMovies.setAdapter(movieAdapter);
         movieAdapter.setOnFavoriteClickListener(movie -> {
@@ -149,14 +143,11 @@ public class MainActivity extends AppCompatActivity {
             Executors.newSingleThreadExecutor().execute(() -> database.movieDao().updateMovie(movie));
         });
 
-        // Adapter phim yêu thích
         favoriteAdapter = new FavouriteMovieAdapter(this::openMovieDetail);
         rvFavoriteMovies.setAdapter(favoriteAdapter);
 
-        // Kết nối Database
         database = MovieDatabase.getDatabase(this);
 
-        // Lấy phim mới thêm (hiển thị tất cả phim mới thêm như bình thường)
         database.movieDao().getAllMovies().observe(this, movies -> {
             if (movies == null || movies.isEmpty()) {
                 tvEmpty.setVisibility(View.VISIBLE);
@@ -168,7 +159,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        // Lấy phim yêu thích
         database.movieDao().getFavoriteMovies().observe(this, movies -> {
             if (movies == null || movies.isEmpty()) {
                 tvFavoriteEmpty.setVisibility(View.VISIBLE);

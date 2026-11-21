@@ -43,7 +43,6 @@ public class MovieLibraryActivity extends AppCompatActivity {
         PreferenceManager.applySavedTheme(this);
         setContentView(R.layout.activity_movie_library);
 
-        // System Window Insets handling (Status bar / Bottom bar overlap protection)
         View mainRoot = findViewById(R.id.mainRoot);
         if (mainRoot != null) {
             ViewCompat.setOnApplyWindowInsetsListener(mainRoot, (v, insets) -> {
@@ -74,7 +73,6 @@ public class MovieLibraryActivity extends AppCompatActivity {
         });
         rvAllMovies.setAdapter(movieAdapter);
 
-        // Search text watcher
         edtSearch.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {}

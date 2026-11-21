@@ -44,7 +44,6 @@
             android:inputType="text|textAutoCorrect"
             android:maxLines="1"/>
 
-        <!-- GENRE DROPDOWN SELECTOR (SYNCHRONIZED WITH SEARCH / FILTER) -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -96,7 +95,6 @@
             android:inputType="numberDecimal"
             android:maxLines="1"/>
 
-        <!-- IMAGE SELECTION CONTAINER FROM DEVICE (UC FEATURE) -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
